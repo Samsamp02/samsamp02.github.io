@@ -1,0 +1,104 @@
+body {
+    font-family:  'Rockwell';  
+    background: #fdf6f0;
+    color: #333;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  header {
+    max-width: 600px;
+    margin: auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: #d36b7b;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+    max-width: 200px;
+    align-self: center;
+  }
+
+  footer {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  
+  h2 {
+    color: #d36b7b;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-family: 'Rockwell', serif;  
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+.image-container {
+ 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+  
+.img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 10px;
+    margin: 10px;
+  } 
+
+.rsvp-form{
+    max-width: 600px;
+    margin: auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    
+
+}
+
+.answerBox {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: right;
+  text-align: left;
+  margin-left: 20px;
+  margin-bottom: 15px;
+  align-items: center ;
+}
+
+
+.textBox {
+  width: 100%;
+  padding: 10px;
+  margin-left: 10%; /* Align from the left */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  display: block; /* Ensure it aligns properly */
+}
