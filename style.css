@@ -77,28 +77,47 @@ body {
     background: white;
     border-radius: 12px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 
+}
+
+.rsvp-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center; 
 }
 
 .answerBox {
   margin-bottom: 10px;
   display: flex;
-  flex-direction: right;
-  text-align: left;
+  flex-direction: left;
+  text-align: right;
   margin-left: 20px;
   margin-bottom: 15px;
-  align-items: center ;
+  align-items: left;
+  overflow: hidden;
+}
+.answerBox div {
+  display: flex;
+  flex-direction: column; 
+  margin-right: 15px;
+  margin-bottom: 5px;
+  text-align: left;
+  align-self: flex-end;
 }
 
 
 .textBox {
-  width: 100%;
+  max-width: 500px;
   padding: 10px;
-  margin-left: 10%; /* Align from the left */
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1rem;
-  margin-bottom: 10px;
-  display: block; /* Ensure it aligns properly */
+  margin: 0; 
+  flex-shrink: 0;
+  
+
 }

@@ -12,27 +12,46 @@
     <p>We're excited to celebrate with you!</p>
     <div class="rsvp-container" style="display: flex; flex-direction: column; gap: 15px;">
       <div class="answerBox">
-        <label for="name" style="padding-right: 20px;">Your Name:</label>
+        <div>
+          <div>Your Name:</div>
+          <div>Votre Prenom:</div>
+        </div>
+        <div >  
+          <input class = "textBox" type="name" id="name" name="name" required>
+        </div>
+      </div>
+      
+      <div class="answerBox">
+        <div>
+          <div>Your Last Name:</div>
+          <div>Votre Nom:</div>
+        </div>
+        <div> 
         <input class = "textBox" type="name" id="name" name="name" required>
+        </div>
       </div>
       
       <div class="answerBox">
-        <label for="last-name" style="padding-right: 0px;" >Your Last Name:</label>
-        <input class = "textBox"  type="text" id="last-name" name="last-name" required>
+        <div>
+          <div>Your Email:</div>
+          <div>Votre Couriel:</div>
+        </div>
+        <div> 
+        <input class = "textBox" type="name" id="name" name="name" required>
+        </div>
       </div>
       
       <div class="answerBox">
-        <label for="email" style="padding-right: 40px;" >Email:</label>
-        <input class = "textBox"  type="email" id="email" name="email" required>
-      </div>
-      
-      <div class="answerBox">
-        <label for="attendance">Will you attend?</label>
-        <select id="attendance" name="attendance" required style="margin-left: 27px;">
-          <option value="">Select an option</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-          <option value="maybe">Maybe</option>
+        <div>
+          <div>Will you attend?</div> 
+          <div>Allez-vous assister?</div>
+        </div>
+       
+        <select class = "textBox" id="attendance" name="attendance" required style="margin-left: 27px;">
+          <option value="" disabled selected value >Select an option</option>
+          <option value="yes">Yes/Oui</option>
+          <option value="no">No/Non</option>
+          <option value="maybe">Maybe/Incertain</option>
         </select>
       </div>
 
