@@ -128,7 +128,7 @@ body {
   overflow: hidden; 
   background-color: #b4b4b4;
   padding-block: 20px;
-  width: 100vw;
+  width: 100%;
   position: relative;
   left: 0;
   right: 0;
@@ -146,6 +146,7 @@ body {
   font-size: 18px;
   line-height: 25px;
   border-radius: 4px;
+
 }
 
 .header a.logo {
@@ -164,16 +165,12 @@ body {
 
 }
 
-.header-right {
-  float: right;
-}
 
 @media screen and (max-width: 550px) {/*TODO hide behind menu button for mobile*/
   .header a {
-    float: none;
-    display: block;
+    display: flex;
     text-align: left;
-    width: 85%;
+    width: 80vw;
   }
   .header-right {
     float: none;
