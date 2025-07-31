@@ -161,17 +161,19 @@ body {
 .header a.active {
   background-color: #d36b7b;
   color: white;
+
 }
 
 .header-right {
   float: right;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {/*TODO hide behind menu button for mobile*/
   .header a {
     float: none;
     display: block;
     text-align: left;
+    width: 85%;
   }
   .header-right {
     float: none;
