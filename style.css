@@ -167,7 +167,7 @@ body {
   background: transparent;
   color:#6b7ed3;
   max-width: 100px;
-  align-self: auto;
+  align-self: right;
   border: 0;
 }
 
@@ -194,6 +194,10 @@ body {
     position: absolute;
     right: 10px;
     top: 5px;
+    background: transparent;
+    color:#6b7ed3;
+    max-width: 100px;
+    align-self: right;
   }
 }
 
