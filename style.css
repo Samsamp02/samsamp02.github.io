@@ -123,10 +123,16 @@ body {
   right: 0;
   padding-left:20px;
   position:sticky;
-  
 }
 
-
+.header div{
+  position: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
 .header a {
   display: flex;
   flex-direction: column;
@@ -139,8 +145,8 @@ body {
   line-height: 25px;
   border-radius: 4px;
   max-width: 150px;
-
-
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .header a.logo {
@@ -177,13 +183,19 @@ body {
     text-align: center;
     width: 80vw;
     flex-direction: column;
-    position: left;
     margin-right: 100px;
+    align-items: center;
+    position: center;
   }
   .header {
     min-height: 30px;
     padding-bottom: 30px;
     flex-direction: column;
+    align-items: center;
+  }
+  .header div {
+    flex-direction: column;
+    align-items: center;
   }
   .header-right {
     float: none;
