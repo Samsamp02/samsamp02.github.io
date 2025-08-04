@@ -8,15 +8,26 @@
 </head>
 <body>
   <div class="header">
-    <div class="header-buttons">
-      <a class="active" href="index.html">Home</a>
-      <a href="rsvp.html">RSVP</a>
-      <a href="bridal-party.html">Bridal party</a>
-      <a href="schedule.html">Schedule</a>
-      <a href="faq.html">FAQ</a>
-      <a href="countdown.html">Countdown</a>
+    
+    <div class="header-buttons" id="header-buttons">
+      <a id ="hide-btn" class="active" href="index.html">Home</a>
+      <a id ="hide-btn" href="rsvp.html">RSVP</a>
+      <a id ="hide-btn" href="bridal-party.html">Bridal party</a>
+      <a id ="hide-btn" href="schedule.html">Schedule</a>
+      <a id ="hide-btn" href="faq.html">FAQ</a>
+      <a id ="hide-btn" href="countdown.html">Countdown</a>
     </div>
+    <button class="menu-btn" id="menu-btn">☰</button>
   </div>
+  <script>
+    document.getElementById('menu-btn').addEventListener('click', function() {
+      document.querySelectorAll('.header-buttons a').forEach(function(link) {
+        link.style.display = link.style.display === 'none' ? 'block' : 'none';
+      });
+      
+    }); 
+      
+  </script>
 
   <br>
   <h2>Time until wedding :)</h2>
