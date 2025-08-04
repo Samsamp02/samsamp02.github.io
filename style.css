@@ -116,17 +116,20 @@ body {
 .header {
   overflow: hidden; 
   background-color: #b7c2e8;
-  padding-block: 20px;
+  padding-block: 10px;
   width: 100%;
   position: relative;
   left: 0;
   right: 0;
   padding-left:20px;
   position:sticky;
+  
 }
 
 
 .header a {
+  display: flex;
+  flex-direction: column;
   float: left;
   color: black;
   text-align: center;
@@ -135,6 +138,8 @@ body {
   font-size: 18px;
   line-height: 25px;
   border-radius: 4px;
+  max-width: 150px;
+
 
 }
 
@@ -154,15 +159,41 @@ body {
 
 }
 
+.menu-btn{
+  display: none;
+  padding: 0.5rem 1rem;
+  font-size: 40px;
+  font-weight: bold;
+  background: transparent;
+  color:#6b7ed3;
+  max-width: 100px;
+  align-self: auto;
+  border: 0;
+}
 
-@media screen and (max-width: 600px) {/*TODO hide behind menu button for mobile*/
+@media screen and (max-width: 650px) {/*TODO hide behind menu button for mobile*/
   .header a {
-    display: flex;
-    text-align: left;
+    display: none;
+    text-align: center;
     width: 80vw;
+    flex-direction: column;
+    position: left;
+    margin-right: 100px;
+  }
+  .header {
+    min-height: 30px;
+    padding-bottom: 30px;
+    flex-direction: column;
   }
   .header-right {
     float: none;
+  }
+  .menu-btn{
+    display: flex;
+    visibility: visible;
+    position: absolute;
+    right: 10px;
+    top: 5px;
   }
 }
 
