@@ -123,7 +123,7 @@ body {
 
 .header {
   overflow: hidden; 
-  background-color: #d1cfcf;
+  background-color: #b7c2e8;
   padding-block: 20px;
   width: 100%;
   position: relative;
@@ -152,7 +152,7 @@ body {
 }
 
 .header a:hover {
-  background-color: #ddd;
+  background-color: #cdd4ed;
   color: black;
 }
 
