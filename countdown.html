@@ -20,7 +20,7 @@
 
   <br>
   <h2>Time until wedding :)</h2>
-  <p id="counter" style="font-weight: bold; font-size: 24px;"></p>
+  <p id="counter" style="font-weight: bold; font-size: 18px;">Calculating....</p>
 
 <script>
   var countDownDate = new Date("August 15, 2026").getTime();
@@ -35,7 +35,7 @@
     
   document.getElementById("counter").innerHTML = days + "d " + hours + "h "
   + minutes + "m " + seconds + "s ";
-    
+  document.getElementById("counter").style.fontSize = "24px";
   if (distance < 0) {
     clearInterval(x);
     document.getElementById("counter").innerHTML = "You missed it :(";
