@@ -1,10 +1,11 @@
+
 body {
     font-family:  'Rockwell';  
     background: #cdd4ed;
     color: #333;
     text-align: center;
     margin: 0;
-    padding: 0;
+    margin-top: 70px;
   }
   
   header {
@@ -118,18 +119,19 @@ body {
   background-color: #b7c2e8;
   padding-block: 10px;
   width: 100%;
-  position: relative;
   left: 0;
   right: 0;
   padding-left:20px;
-  position:sticky;
+  margin-bottom: 1000px;
+  margin-top: -75px;
+  position:fixed
+
 }
 
 .header div{
   position: center;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
 }
