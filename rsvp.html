@@ -24,52 +24,38 @@
     <h1>RSVP for Marissa & Joel</h1>
     <p>We're excited to celebrate with you!</p>
     <div class="rsvp-container" style="display: flex; flex-direction: column; gap: 15px;">
-      <div class="answerBox">
-        <div>
-          <div>Your Name:</div>
-        </div>
-        <div >  
-          <input class = "textBox" type="name" id="name" name="name" required>
-        </div>
-      </div>
       
-      <div class="answerBox">
-        <div>
-          <div>Your Last Name:</div>
-        </div>
-        <div> 
-        <input class = "textBox" type="name" id="name" name="name" required>
-        </div>
-      </div>
-      
-      <div class="answerBox">
-        <div>
-          <div>Your Email:</div>
-        </div>
-        <div> 
-        <input class = "textBox" type="name" id="name" name="name" required>
-        </div>
-      </div>
-      
-      <div class="answerBox">
-        <div>
-          <div>Will you attend?</div> 
-        </div>
-       
-        <select class = "textBox" id="attendance" name="attendance" required style="margin-left: 27px;">
-          <option value="" disabled selected value >Select an option</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-      </div>
+  
+    <div class = "answerBox"> 
+      <label for="name">First Name</label>
+      <input class = "textBox" type="name" id="name" name="name" required>
 
+      <label for="lastName">Last Name</label>
+      <input class = "textBox" type="name" id="lastName" name="lastName" required>
+
+      <label for="email">Email</label>
+      <input class = "textBox" type="name" id="email" name="email" required>
+
+      <label for="attendance">Will you attend?</label>
+      <select class = "textBox" id="attendance" name="attendance">
+        <option value="" disabled selected value >Select an option</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+    
+        
       <button type="submit" class="btn">
         Submit RSVP 
       </button>
     </div>
+  </div>
   </section>
 
+<section>
 
+
+
+</section>
     <footer>
         <p>
         Thank you for letting us know <br>
