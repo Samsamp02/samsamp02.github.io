@@ -1,11 +1,12 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Rouge+Script&display=swap');
 body {
-    font-family:  'Rockwell';  
+    font-family: "", cursive;
     background: #cdd4ed;
     color: #333;
     text-align: center;
     margin-top: 40px;
     padding-top: 75px
+
     
   }
   
@@ -42,13 +43,12 @@ body {
   
   h2 {
     color: #6b7ed3;
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
   }
 
   p {
-    font-family: 'Rockwell', serif;  
-    font-size: 1rem;
+    font-size: 1.5rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
   }
@@ -111,7 +111,7 @@ body {
 
 
 .namespace{
-  font-family: Brush Script MT;
+  font-family: "Rouge Script", cursive;
   display: flex;
   font-size: 18px;
   margin-left: 45%;
