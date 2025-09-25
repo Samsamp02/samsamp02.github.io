@@ -71,6 +71,16 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
   } 
 
+.banner-image{
+  width:650px;
+  overflow: hidden;
+  height: 300px;
+  object-fit: cover;
+  align-items: center;
+  margin: -50px;
+  margin-bottom: 0px;
+  
+}
 
 
 .rsvp-container {
@@ -131,8 +141,8 @@ body {
   right: 0;
   padding-left:20px;
   margin-top:-115px;
-  position:fixed
-
+  position:fixed;
+  padding-bottom:0px;
 }
 
 .header div{
@@ -225,6 +235,12 @@ body {
     margin-left:-25px;
   }
 
+  .banner-image{
+    overflow: hidden;
+    height:absolute;
+    object-fit: cover;
+    width: 100vw;
+  }
 }
 
 .scheduleContainer {
