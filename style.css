@@ -1,289 +1,172 @@
-@font-face {
-  font-family: "glacial-indifference"; /* Give your font a descriptive name */
-  src: url("./glacial-indifference/GlacialIndifference-Regular.otf") format("otf");
-  font-weight: normal;
-  font-style: normal;
+/* ---------- Layout helpers ---------- */
+:root{
+  --header-bg: #b7c2e8;
+  --accent: #6b7ed3;
+  --page-bg: #cdd4ed;
+  --text: #333;
+  --maxw: 900px;
 }
-@font-face {
-  font-family: "glacial-indifference"; /* Give your font a descriptive name */
-  src: url("./glacial-indifference/GlacialIndifference-bold.otf") format("otf");
-  font-weight: bold;
-  font-style: bold;
-}
+
+/* make padding behave predictably */
+*{ box-sizing: border-box; }
 
 body {
-    font-family: "glacial-indifference", Arial, sans-serif;
-    background: #cdd4ed;
-    color: #333;
-    text-align: center;
-    margin-top: 40px;
-    padding-top: 75px
-
-    
-  }
-  
-  header {
-    box-sizing: border-box;
-    max-width: 600px;
-    margin: auto;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    box-shadow: 5px 5px #42424245;
-    border: rgba(25, 25, 25, 0.35) 1px solid;
-  }
-  
-  .btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background: #6b7ed3;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    margin-top: 1.5rem;
-    max-width: 200px;
-    align-self: center;
-  }
-
-  footer {
-    margin-top: 2rem;
-    font-size: 0.9rem;
-    color: #666;
-  }
-  
-  
-  h2 {
-    color: #6b7ed3;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  p {
-    font-size: 1.5rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-  }
-.image-container {
- 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    flex-direction: column;
-    align-items: center;
-    
-  }
-  
-.img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  } 
-
-.banner-image{
-  width:1000px;
-  overflow: hidden;
-  height: 450px;
-  object-fit: cover;
-  align-items: center;
-  margin: -50px;
-  margin-bottom: 0px;
-  
-}
-.banner-holder{
-  overflow: hidden;
-  width:1000px;
-  height: 450px;
-}
-
-.rsvp-container {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  text-align: right; 
-}
-
-.answerBox {
-  margin-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-  margin-left: 50px;
-  margin-bottom: 15px;
-  overflow: hidden;
-  box-sizing: border-box;
-  width: 100%;
-  text-align: left;
-  line-height: 2;
-  align-self: center;
-  align-items: center;
-
-}
-
-
-.textBox {
-  max-width: 500px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-  margin: 0; 
-  flex-shrink: 0;
-}
-
-
-.namespace{
   font-family: "glacial-indifference", Arial, sans-serif;
-  display: flex;
-  font-size: 18px;
-  margin-left: 45%;
-  padding: 5px;
-  color: #666;
-  background-color: #b7c2e8;
-  width: 100%;
-  height: 25px;
+  background: var(--page-bg);
+  color: var(--text);
   text-align: center;
-  align-self: center;
-  font-weight: bold;
+
+  /* replace the old margin-top hack with clean spacing for fixed header */
+  margin: 0;
+  padding-top: 110px; /* enough space for the fixed header */
 }
 
-.header {
-  overflow: hidden; 
-  background-color: #b7c2e8;
-  width: 100%;
+/* ---------- Header / Nav (Desktop first) ---------- */
+.header{
+  position: fixed;
+  top: 0;
   left: 0;
   right: 0;
-  padding-left:20px;
-  margin-top:-115px;
-  position:fixed;
-  padding-bottom:0px;
-}
 
-.header div{
-  position: center;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  background: var(--header-bg);
+  z-index: 999;
   width: 100%;
+  padding: 10px 16px;
+  overflow: visible; /* allow dropdown to show */
 }
-.header a {
+
+/* Use a single row: brand on left, links on right */
+.header .header-row{
+  max-width: var(--maxw);
+  margin: 0 auto;
+
   display: flex;
-  flex-direction: column;
-  float: left;
-  color: black;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px;
-  line-height: 25px;
-  border-radius: 4px;
-  max-width: 150px;
-  margin-left: 5px;
-  margin-right: 5px;
-  font-weight: bold;
-}
-
-.header a.logo {
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.header a:hover {
-  background-color: #cdd4ed;
-  color: black;
-}
-
-.header a.active {
-  background-color: #6b7ed3;
-  color: white;
-
-}
-
-.menu-btn{
-  display: none;
-  padding: 0.5rem 1rem;
-  font-size: 40px;
-  font-weight: bold;
-  background: transparent;
-  color:#6b7ed3;
-  max-width: 100px;
-  align-self: right;
-  border: 0;
-}
-
-@media screen and (max-width: 650px) {/*TODO hide behind menu button for mobile*/
-  .header a {
-    display: none;
-    text-align: center;
-    width: 80vw;
-    flex-direction: column;
-    margin-right: 100px;
-    position: flex;
-    margin-left: 50px;
-  }
-  .header {
-    min-height: 30px;
-    padding-bottom: 30px;
-    flex-direction: column;
-    align-items: center;
-  }
-  .header div {
-    flex-direction: column;
-    align-items: center;
-  }
-  .header-right {
-    float: none;
-  }
-  .menu-btn{
-    display: flex;
-    visibility: visible;
-    position: absolute;
-    right: 10px;
-    top: 5px;
-    background: transparent;
-    color:#6b7ed3;
-    max-width: 100px;
-    align-self: right;
-  }
-  .namespace{
-    margin-left:-25px;
-  }
-
-  .banner-image{
-    overflow: hidden;
-    height: auto;
-    background-size: cover;
-    object-fit: cover;
-    width: 100vw;
-    scale: 1.5;
-  }
-  .banner-holder{
-    overflow:hidden;
-    width:100vw;
-    max-height: 500px;
-    
-  }
-}
-
-.scheduleContainer {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  margin-top: 20px;
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 1.5;
+  justify-content: space-between;
+  gap: 12px;
 }
 
-.partyList {
-  line-height: 0.5;
+
+/* link container */
+.header-buttons{
+  display: flex;
+  flex-wrap: wrap;           
+  justify-content: center;
+  gap: 8px;
 }
 
-.partyList label {
-  color: #4e62ba;
+/* links */
+.header a{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: black;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+
+  padding: 10px 12px;
+  border-radius: 8px;
+  line-height: 1;
 }
-.partyList p{
-  margin-top: 50px;
+
+.header a:hover{
+  background-color: var(--page-bg);
+}
+
+.header a.active{
+  background-color: var(--accent);
+  color: white;
+}
+
+/* hamburger button */
+.menu-btn{
+  display: none; /* hidden on desktop */
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  font-size: 34px;
+  font-weight: 800;
+  padding: 6px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.menu-btn:hover{
+  background: rgba(255,255,255,0.35);
+}
+
+/* ---------- Banner (fix 1000px hardcode) ---------- */
+.banner-holder{
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.banner-image{
+  width: 100%;
+  height: clamp(220px, 35vw, 450px); /* responsive height */
+  object-fit: cover;
+  display: block;
+
+  /* remove the negative margin hack */
+  margin: 0;
+}
+
+/* ---------- General content scaling ---------- */
+header{
+  max-width: 600px;
+  width: calc(100% - 24px);
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* make text scale a bit nicer on small screens */
+h2{
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+}
+
+p{
+  font-size: clamp(1.05rem, 2.6vw, 1.5rem);
+}
+
+/* ---------- Tablet / Phone nav ---------- */
+@media (max-width: 760px){
+  body{ padding-top: 90px; }
+
+  .header .header-row{
+    max-width: 100%;
+  }
+
+  /* show hamburger */
+  .menu-btn{ 
+    display: inline-flex;
+    padding: 0px;
+   }
+
+  /* hide links by default on mobile */
+  .header-buttons{
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding-top: 10px;
+  }
+
+  /* show links when header has .nav-open */
+  .header.nav-open .header-buttons{
+    display: flex;
+  }
+
+  .header a{
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  
 }
