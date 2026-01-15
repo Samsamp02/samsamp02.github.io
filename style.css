@@ -1,24 +1,27 @@
-/* ---------- Layout helpers ---------- */
 :root{
   --header-bg: #b7c2e8;
   --accent: #6b7ed3;
   --page-bg: #cdd4ed;
   --text: #333;
   --maxw: 900px;
+  --font: Imperial Script;
 }
 
-/* make padding behave predictably */
 *{ box-sizing: border-box; }
+
+.imperial-script-regular {
+  font-family: "Imperial Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
 
 body {
   font-family: "glacial-indifference", Arial, sans-serif;
   background: var(--page-bg);
   color: var(--text);
   text-align: center;
-
-  /* replace the old margin-top hack with clean spacing for fixed header */
   margin: 0;
-  padding-top: 110px; /* enough space for the fixed header */
+  padding-top: 45px; 
 }
 
 /* ---------- Header / Nav (Desktop first) ---------- */
@@ -27,15 +30,13 @@ body {
   top: 0;
   left: 0;
   right: 0;
-
   background: var(--header-bg);
   z-index: 999;
   width: 100%;
   padding: 10px 16px;
-  overflow: visible; /* allow dropdown to show */
+  overflow: visible;
 }
 
-/* Use a single row: brand on left, links on right */
 .header .header-row{
   max-width: var(--maxw);
   margin: 0 auto;
@@ -97,23 +98,20 @@ body {
   background: rgba(255,255,255,0.35);
 }
 
-/* ---------- Banner (fix 1000px hardcode) ---------- */
+/* ---------- Banner ---------- */
 .banner-holder{
   width: 100%;
   max-width: var(--maxw);
-  margin: 0 auto;
+  margin: 10px auto;
   overflow: hidden;
   border-radius: 12px;
 }
 
 .banner-image{
   width: 100%;
-  height: clamp(220px, 35vw, 450px); /* responsive height */
+  height: clamp(320px, 35vw, 1450px); /* responsive height */
   object-fit: cover;
   display: block;
-
-  /* remove the negative margin hack */
-  margin: 0;
 }
 
 /* ---------- General content scaling ---------- */
@@ -124,7 +122,9 @@ header{
   padding: 2rem;
 }
 
-/* make text scale a bit nicer on small screens */
+h1{
+   font-size: clamp(2.5rem, 3.5vw, 3rem);
+}
 h2{
   font-size: clamp(1.5rem, 3.5vw, 2rem);
 }
@@ -133,9 +133,58 @@ p{
   font-size: clamp(1.05rem, 2.6vw, 1.5rem);
 }
 
+
+.section{
+  scale: 125%;
+  min-width: 100%;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  
+}
+
+/*text properties */
+.intro-section{ 
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  color: aliceblue;
+  font-family: var(--font);
+  size: 125%;
+   text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000; 
+}
+
+.btn{
+  background-color: #405cf5;
+  border-radius: 6px;
+  border-width: 0;
+  box-sizing: border-box;
+  height: 44px;
+  margin: 12px 0 0;
+  padding: 0 25px;
+
+}
+.btn a {
+   text-decoration: none;
+   color: black;
+
+}
+
+.image-container{
+  position: relative;
+}
+.image-container img {
+    width:50%;
+    height: auto;
+}
 /* ---------- Tablet / Phone nav ---------- */
 @media (max-width: 760px){
-  body{ padding-top: 90px; }
+  body{ padding-top: 50px; }
 
   .header .header-row{
     max-width: 100%;
