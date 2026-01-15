@@ -19,7 +19,7 @@ body {
   text-align: center;
   margin: 0;
   padding-top: 45px; 
-  overflow: none;
+  overflow-x: hidden;
 }
 
 /* ---------- Header / Nav (Desktop first) ---------- */
@@ -32,7 +32,7 @@ body {
   z-index: 999;
   width: 100%;
   padding: 10px 16px;
-  overflow: none;
+  overflow-x: hidden;
 }
 
 .header .header-row{
@@ -112,13 +112,6 @@ body {
   display: block;
 }
 
-/* ---------- General content scaling ---------- */
-header{
-  max-width: 600px;
-  width: calc(100% - 24px);
-  margin: 0 auto;
-  padding: 2rem;
-}
 
 h1{
    font-size: clamp(1.5vw, 3.5vw, 3.5vw);
