@@ -163,9 +163,9 @@ h2{
   position: relative;
 }
 .image-container img {
-    scale:115%;
+    scale:100%;
     width: auto;
-    height: clamp(320px, 40vw, 75vw);
+    height: clamp(320px, 40vw, 60vw);
 }
 /* ---------- Tablet / Phone nav ---------- */
 @media (max-width: 760px){
