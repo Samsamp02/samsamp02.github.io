@@ -4,19 +4,16 @@
   --page-bg: #cdd4ed;
   --text: #333;
   --maxw: 900px;
-  --font: Imperial Script;
+  --font: glacial-indifference-regular;
 }
 
 *{ box-sizing: border-box; }
 
-.imperial-script-regular {
-  font-family: "Imperial Script", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
+
 
 body {
-  font-family: "glacial-indifference", Arial, sans-serif;
+  font-family: "glacial-indifference-regular", Arial, sans-serif;
+  font-weight: bold;
   background: var(--page-bg);
   color: var(--text);
   text-align: center;
@@ -109,7 +106,7 @@ body {
 
 .banner-image{
   width: 100%;
-  height: clamp(320px, 35vw, 1450px); /* responsive height */
+  height: clamp(320px, 40vw, 1450px); /* responsive height */
   object-fit: cover;
   display: block;
 }
@@ -123,20 +120,15 @@ header{
 }
 
 h1{
-   font-size: clamp(2.5rem, 3.5vw, 3rem);
+   font-size: clamp(1.5vw, 3.5vw, 3.5vw);
 }
 h2{
-  font-size: clamp(1.5rem, 3.5vw, 2rem);
-}
-
-p{
-  font-size: clamp(1.05rem, 2.6vw, 1.5rem);
+ font-size: clamp(1.0vw, 2.0vw, 2.5vw);
 }
 
 
 .section{
   scale: 125%;
-  min-width: 100%;
   margin-top: 5%;
   margin-bottom: 10%;
   
@@ -145,18 +137,17 @@ p{
 /*text properties */
 .intro-section{ 
   position: absolute;
-  top: 50%;
-  left: 35%;
+  top: 65%;
+  left: 30%;
   transform: translate(-50%, -50%);
   text-align: left;
   color: aliceblue;
-  font-family: var(--font);
   size: 125%;
-   text-shadow:
+  /* text-shadow:
     -1px -1px 0 #000,
     1px -1px 0 #000,
     -1px 1px 0 #000,
-    1px 1px 0 #000; 
+    1px 1px 0 #000; */
 }
 
 .btn{
@@ -216,6 +207,15 @@ p{
     font-size: 16px;
     padding: 12px;
   }
+  .intro-section{
+    position: absolute;
+    top: 65%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    size: 125%;
+   }
+
 
   
 }
