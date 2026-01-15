@@ -96,17 +96,9 @@ body {
 }
 
 /* ---------- Banner ---------- */
-.banner-holder{
-  width: 100%;
-  max-width: var(--maxw);
-  margin: 10px auto;
-  overflow: hidden;
-  border-radius: 12px;
-}
-
 .banner-image{
-  width: 100%;
-  height: clamp(320px, 40vw, 1450px); /* responsive height */
+  min-width: 100%;
+  height: clamp(320px, 45vw, 1450px); 
   object-fit: cover;
   display: block;
 }
