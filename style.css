@@ -138,7 +138,7 @@ h2{
 .intro-section{ 
   position: absolute;
   top: 65%;
-  left: 30%;
+  left: 28%;
   transform: translate(-50%, -50%);
   text-align: left;
   color: aliceblue;
@@ -170,8 +170,9 @@ h2{
   position: relative;
 }
 .image-container img {
-    width:50%;
-    height: auto;
+    scale:115%;
+    width: auto;
+    height: clamp(320px, 40vw, 75vw);
 }
 /* ---------- Tablet / Phone nav ---------- */
 @media (max-width: 760px){
