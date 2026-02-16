@@ -7,58 +7,55 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<div class="header" id="site-header">
-  <div class="header-row">
-
-    <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
-  </div>
-
-  <div class="header-buttons" id="header-buttons">
-    <a id ="hide-btn" href="index.html" class="active">Home</a>
-    <a id ="hide-btn" href="rsvp.html">RSVP</a>
-    <a id ="hide-btn" href="bridal-party.html">Bridal party</a>
-    <a id ="hide-btn" href="schedule.html">Schedule</a>
-    <a id ="hide-btn" href="faq.html">FAQ</a>
-    <a id ="hide-btn" href="countdown.html">Countdown</a>
-  </div>
-</div>
-
 <body>
-  
-  <script>
-  const header = document.getElementById('site-header');
-  const btn = document.getElementById('menu-btn');
+  <div class="header" id="site-header">
+    <div class="header-row">
+      <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
 
-  btn.addEventListener('click', () => {
-    const isOpen = header.classList.toggle('nav-open');
-    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  });
-</script>
-
-<div class="section"> 
-  <img src="highlights/IMG_8330-homepage-banner.jpg" alt="banner Image" class="banner-image" >
-  <div class="intro-section">
-    <h1>Marissa & Joel</h1>
-    <h2>We're getting married!<br>
-      August 15 2026</h2>
-
-  </div>
-</div>
-
-
-<div class="section">
-  <button class="btn">
-    <a href="rsvp.html">RSVP</a>
-  </button>
-<h2>Photo Gallery</h2>
-</div>
-
- <div class="image-container">
-        <img class="img" src="highlights/White-Min.png" alt="timeline">
-        <img class="img" src="highlights/IMG_8125.jpg" alt="Photo 2">
-        <img class="img" src="highlights/IMG_8229.jpg" alt="Photo 3">
-        <img class="img" src="highlights/IMG_8266.jpg" alt="Photo 4">
+      <div class="header-buttons" id="header-buttons">
+        <a href="index.html" class="active">Home</a>
+        <a href="rsvp.html">RSVP</a>
+        <a href="bridal-party.html">Bridal party</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="faq.html">FAQ</a>
+        <a href="countdown.html">Countdown</a>
+      </div>
     </div>
-    
+  </div>
+
+  <script>
+    const header = document.getElementById('site-header');
+    const btn = document.getElementById('menu-btn');
+    btn.addEventListener('click', () => {
+      const isOpen = header.classList.toggle('nav-open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  </script>
+
+  <main class="container">
+    <section class="hero">
+      <img src="highlights/IMG_8330-homepage-banner.jpg" alt="banner image">
+      <div class="hero-text">
+        <h1>Marissa & Joel</h1>
+        <p>We're getting married! <br> August 15, 2026</p>
+      </div>
+    </section>
+
+    <section class="card center">
+      <a class="btn" href="rsvp.html">RSVP</a>
+      <h2 style="margin-top:16px;">Photo Gallery</h2>
+
+      <div class="gallery">
+        <img src="highlights/White-Min.png" alt="timeline">
+        <img src="highlights/IMG_8125.jpg" alt="Photo 2">
+        <img src="highlights/IMG_8229.jpg" alt="Photo 3">
+        <img src="highlights/IMG_8266.jpg" alt="Photo 4">
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Can’t wait to celebrate with you 💜</p>
+  </footer>
 </body>
 </html>

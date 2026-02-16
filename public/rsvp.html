@@ -11,18 +11,18 @@
   <div class="header" id="site-header">
     <div class="header-row">
       <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
-    </div>
 
-    <div class="header-buttons" id="header-buttons">
-      <a id="hide-btn" href="index.html">Home</a>
-      <a id="hide-btn" href="rsvp.html" class="active">RSVP</a>
-      <a id="hide-btn" href="bridal-party.html">Bridal party</a>
-      <a id="hide-btn" href="schedule.html">Schedule</a>
-      <a id="hide-btn" href="faq.html">FAQ</a>
-      <a id="hide-btn" href="countdown.html">Countdown</a>
+    
+      <div class="header-buttons" id="header-buttons-mobile">
+        <a href="index.html">Home</a>
+        <a href="rsvp.html" class="active">RSVP</a>
+        <a href="bridal-party.html">Bridal party</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="faq.html">FAQ</a>
+        <a href="countdown.html">Countdown</a>
+      </div>
     </div>
   </div>
-
   <script>
     const header = document.getElementById('site-header');
     const btn = document.getElementById('menu-btn');
@@ -32,47 +32,46 @@
     });
   </script>
 
-  <header>
-    <h2>RSVP for Marissa & Joel</h2>
-    <p>We're excited to celebrate with you!</p>
+  <main class="container">
+    <section class="card">
+      <h2 class="center">RSVP for Marissa & Joel</h2>
+      <p class="center" style="margin-top:6px;">We’re excited to celebrate with you!</p>
 
-    <div class="rsvp-container" style="display: flex; flex-direction: column; gap: 15px;">
-      <div class="answerBox">
-
-        <!--  FORM wrapper -->
-        <form id="rsvpForm">
+      <form id="rsvpForm">
+        <div>
           <label for="name">First Name</label>
           <input class="textBox" type="text" id="name" name="name" required>
+        </div>
 
+        <div>
           <label for="lastName">Last Name</label>
           <input class="textBox" type="text" id="lastName" name="lastName" required>
+        </div>
 
+        <div>
           <label for="email">Email</label>
           <input class="textBox" type="email" id="email" name="email" required>
+        </div>
 
+        <div>
           <label for="attendance">Will you attend?</label>
           <select class="textBox" id="attendance" name="attendance" required>
             <option value="" disabled selected>Select an option</option>
             <option value="yes">Yes</option>
             <option value="no">No</option>
           </select>
+        </div>
 
-          <button type="submit" class="btn">Submit RSVP</button>
-          <p id="statusMsg"></p>
-        </form>
-        <script type="module" src="./rsvp.js"></script>
-      </div>
-    </div>
-  </header>
+        <button type="submit" class="btn">Submit RSVP</button>
+        <p id="statusMsg"></p>
+      </form>
+    </section>
+  </main>
 
   <footer>
-    <p>
-      Thank you for letting us know <br>
-      We look forward to celebrating with you!
-    </p>
+    <p>Thank you for letting us know 💜</p>
   </footer>
 
-  <!-- ✅ Load Firebase logic -->
   <script type="module" src="./rsvp.js"></script>
 </body>
 </html>
