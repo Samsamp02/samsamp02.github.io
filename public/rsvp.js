@@ -15,8 +15,9 @@ import {
 // ===============================
 // Firebase configuration
 // ===============================
+const key = import.meta.env.API_KEY
 const firebaseConfig = {
-  apiKey: "AIzaSyCSx9urSfeXtcQSQ46MzOu9k0XeSKyGUE8",
+  apiKey: key,
   authDomain: "marissa-joel-wedding.firebaseapp.com",
   projectId: "marissa-joel-wedding",
   storageBucket: "marissa-joel-wedding.firebasestorage.app",
