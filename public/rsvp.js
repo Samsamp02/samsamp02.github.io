@@ -5,7 +5,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/fireba
 import {
   getFirestore,
   collection,
-  addDoc,
+  setDoc,
+  doc,
   serverTimestamp,
   query,
   where,
@@ -64,7 +65,7 @@ form.addEventListener("submit", async (e) => {
     statusMsg.textContent = "Submitting...";
     statusMsg.style.color = "black";
 
-    // Prevent duplicate RSVP by email
+    /* Prevent duplicate RSVP by email
     const q = query(
       collection(db, "rsvps"),
       where("email", "==", email)
@@ -75,14 +76,15 @@ form.addEventListener("submit", async (e) => {
       statusMsg.textContent = "This email has already RSVP’d.";
       statusMsg.style.color = "orange";
       return;
-    }
-
-    // Save RSVP to Firestore
-    await addDoc(collection(db, "rsvps"), {
+    }*/
+    
+    //upload to database
+    const emailId = email.trim().toLowerCase(); 
+    await setDoc(doc(db, "rsvps", emailId), {
       firstName,
       lastName,
-      email,
-      attendance,          // "yes" or "no"
+      email: emailId,
+      attendance,
       createdAt: serverTimestamp()
     });
 
@@ -92,7 +94,13 @@ form.addEventListener("submit", async (e) => {
 
   } catch (error) {
     console.error("Firebase error:", error);
-    statusMsg.textContent = "Something went wrong. Please try again.";
-    statusMsg.style.color = "red";
+
+    if (error.code === "permission-denied") {
+      statusMsg.textContent = "This email has already RSVP’d.";
+      statusMsg.style.color = "orange";
+    } else {
+      statusMsg.textContent = "Something went wrong. Please try again.";
+      statusMsg.style.color = "red";
+    }
   }
 });
