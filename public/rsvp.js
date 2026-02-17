@@ -1,7 +1,6 @@
 // ===============================
 // Firebase imports (CDN)
 // ===============================
-require('dotenv').config();
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
 import {
   getFirestore,
@@ -16,9 +15,8 @@ import {
 // ===============================
 // Firebase configuration
 // ===============================
-const key = process.env.API_KEY
 const firebaseConfig = {
-  apiKey: key,
+  apiKey: "AIzaSyCSx9urSfeXtcQSQ46MzOu9k0XeSKyGUE8",
   authDomain: "marissa-joel-wedding.firebaseapp.com",
   projectId: "marissa-joel-wedding",
   storageBucket: "marissa-joel-wedding.firebasestorage.app",
