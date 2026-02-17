@@ -15,7 +15,8 @@ import {
 // ===============================
 // Firebase configuration
 // ===============================
-const key = import.meta.env.API_KEY
+require('dotenv').config();
+const key = process.env.env.API_KEY
 const firebaseConfig = {
   apiKey: key,
   authDomain: "marissa-joel-wedding.firebaseapp.com",
