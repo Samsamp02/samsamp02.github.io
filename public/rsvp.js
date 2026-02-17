@@ -17,7 +17,7 @@ import {
 // ===============================
 const key = import.meta.env.API_KEY
 const firebaseConfig = {
-  apiKey: "AIzaSyCSx9urSfeXtcQSQ46MzOu9k0XeSKyGUE8",
+  apiKey: key,
   authDomain: "marissa-joel-wedding.firebaseapp.com",
   projectId: "marissa-joel-wedding",
   storageBucket: "marissa-joel-wedding.firebasestorage.app",
@@ -39,7 +39,7 @@ const statusMsg = document.getElementById("statusMsg");
 
 // Safety check
 if (!form) {
-  console.error("❌ Form with id='rsvpForm' not found in HTML.");
+  console.error("Form with id='rsvpForm' not found in HTML.");
 }
 
 // ===============================
