@@ -73,6 +73,31 @@ if (attendanceSelect.value === "yes") {
   foodChoicesWrap.classList.add("is-visible");
 }
 
+const PhoneFormatted = false;
+document.addEventListener("DOMContentLoaded", () => {
+  const phoneInput = document.getElementById("phone");
+  const phoneError = statusMsg;
+
+  // Debug: confirm we found the input
+  console.log("phoneInput found?", phoneInput);
+
+  if (!phoneInput) return; // stops if id doesn't match
+
+  phoneInput.addEventListener("input", (e) => {
+    let numbers = e.target.value.replace(/\D/g, "");
+    numbers = numbers.substring(0, 10);
+
+    let formatted = numbers;
+    if (numbers.length > 6) {
+      formatted = `${numbers.slice(0,3)}-${numbers.slice(3,6)}-${numbers.slice(6)}`;
+    } else if (numbers.length > 3) {
+      formatted = `${numbers.slice(0,3)}-${numbers.slice(3)}`;
+    }
+
+    e.target.value = formatted;
+
+    });
+});
 // ===============================
 // Form submit handler
 // ===============================
@@ -82,21 +107,28 @@ form.addEventListener("submit", async (e) => {
   // Read input values
   const firstName = document.getElementById("name").value.trim();
   const lastName = document.getElementById("lastName").value.trim();
-  const email = document.getElementById("email").value.trim().toLowerCase();
+  const email = document.getElementById("email").value.trim().toLowerCase(); 
+  const phone = document.getElementById("phone").value.trim();
   const attendance = document.getElementById("attendance").value;
   const main = mainSelect.value;
   const side = sideSelect.value;
   const desert = desertSelect.value;
 
   // Basic validation
-  if (!firstName || !lastName || !email || !attendance) {
+  if (!firstName || !lastName || !email || !attendance || !phone) {
     statusMsg.textContent = "Please fill out all fields.";
+    statusMsg.style.color = "red";
+    return;
+  } else if (phone.length!=12) {
+    statusMsg.textContent = "Please enter a valid phone number.";
     statusMsg.style.color = "red";
     return;
   } else if (attendance === "yes" && (!mainSelect.value || !sideSelect.value || !desertSelect.value)) {
     statusMsg.textContent = "Please choose menu options";
     statusMsg.style.color = "red";
     return;
+  } else {
+    statusMsg.textContent = "";
   }
 
   try {
@@ -123,6 +155,7 @@ form.addEventListener("submit", async (e) => {
         firstName,
         lastName,
         email: emailId,
+        phone,
         attendance,
         main,
         side,
@@ -134,6 +167,7 @@ form.addEventListener("submit", async (e) => {
         firstName,
         lastName,
         email: emailId,
+        phone,
         attendance,
         createdAt: serverTimestamp()
       });
