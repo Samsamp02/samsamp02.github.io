@@ -43,6 +43,36 @@ if (!form) {
 }
 
 // ===============================
+//show food options if attending
+// ===============================
+const attendanceSelect = document.getElementById("attendance");
+const mainSelect = document.getElementById("main");
+const sideSelect = document.getElementById("side");
+const desertSelect = document.getElementById("desert");
+
+attendanceSelect.addEventListener("change", () => {
+  const isYes = attendanceSelect.value === "yes";
+  console.log("Attendance changed:", attendanceSelect.value, "Show food choices?", isYes);
+  if (isYes) {
+    foodChoicesWrap.style.display = "block";
+    foodChoicesWrap.classList.add("is-visible");
+  } else {
+    foodChoicesWrap.style.display = "none";
+    foodChoicesWrap.classList.remove("is-visible");
+
+    // Reset choices if they switch to "no"
+    mainSelect.value = "";
+    sideSelect.value = "";
+    desertSelect.value = "";
+
+  }
+});
+if (attendanceSelect.value === "yes") {
+  foodChoicesWrap.style.display = "block";
+  foodChoicesWrap.classList.add("is-visible");
+}
+
+// ===============================
 // Form submit handler
 // ===============================
 form.addEventListener("submit", async (e) => {
@@ -53,10 +83,17 @@ form.addEventListener("submit", async (e) => {
   const lastName = document.getElementById("lastName").value.trim();
   const email = document.getElementById("email").value.trim().toLowerCase();
   const attendance = document.getElementById("attendance").value;
+  const main = mainSelect.value;
+  const side = sideSelect.value;
+  const desert = desertSelect.value;
 
   // Basic validation
   if (!firstName || !lastName || !email || !attendance) {
     statusMsg.textContent = "Please fill out all fields.";
+    statusMsg.style.color = "red";
+    return;
+  } else if (attendance === "yes" && (!mainSelect.value || !sideSelect.value || !desertSelect.value)) {
+    statusMsg.textContent = "Please choose menu options";
     statusMsg.style.color = "red";
     return;
   }
@@ -80,13 +117,26 @@ form.addEventListener("submit", async (e) => {
     
     //upload to database
     const emailId = email.trim().toLowerCase(); 
-    await setDoc(doc(db, "rsvps", emailId), {
-      firstName,
-      lastName,
-      email: emailId,
-      attendance,
-      createdAt: serverTimestamp()
-    });
+    if (attendance === "yes") { 
+      await setDoc(doc(db, "rsvps", emailId), {
+        firstName,
+        lastName,
+        email: emailId,
+        attendance,
+        main,
+        side,
+        desert,
+        createdAt: serverTimestamp()
+      });
+    } else {
+      await setDoc(doc(db, "rsvps", emailId), {
+        firstName,
+        lastName,
+        email: emailId,
+        attendance,
+        createdAt: serverTimestamp()
+      });
+    }
 
     statusMsg.textContent = "RSVP saved! 🎉 Thank you!";
     statusMsg.style.color = "green";

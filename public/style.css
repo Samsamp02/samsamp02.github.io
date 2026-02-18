@@ -274,6 +274,32 @@ select:focus{
   box-shadow: 0 0 0 4px rgba(107,126,211,0.18);
 }
 
+.food-choice{
+  display:flex;
+  padding: 12px px;
+}
+
+.food-choice-label{
+  display:flex;
+  padding: 12px 0px;
+}
+
+/* Start hidden */
+.food-choice-wrap {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 250ms ease, opacity 200ms ease, transform 200ms ease;
+  pointer-events: none; 
+}
+
+/* Shown state */
+.food-choice-wrap.is-visible {
+  max-height: 300px;   
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
 #statusMsg{
   margin: 6px 0 0;
   font-weight: 800;
@@ -310,3 +336,4 @@ footer{
   text-align: center;
   color: rgba(0,0,0,0.75);
 }
+
