@@ -46,6 +46,7 @@ if (!form) {
 //show food options if attending
 // ===============================
 const attendanceSelect = document.getElementById("attendance");
+const foodChoicesWrap = document.getElementById("foodChoices");
 const mainSelect = document.getElementById("main");
 const sideSelect = document.getElementById("side");
 const desertSelect = document.getElementById("desert");
