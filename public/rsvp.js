@@ -98,6 +98,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 });
+
+//choice of first course or desert
+sideSelect.addEventListener("change", () => {
+  const option1 = document.getElementById("option1");
+  const option2 = document.getElementById("option2");
+
+  if (sideSelect.value === "first") {
+    option1.textContent = "Mushroom soup";
+    option2.textContent = "Kale caesar salad";
+  }else{
+    option1.textContent = "Crème brûlé";
+    option2.textContent = "Cheesecake";
+  }
+
+});
+
+
+
 // ===============================
 // Form submit handler
 // ===============================
