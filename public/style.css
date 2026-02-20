@@ -44,6 +44,7 @@ a { color: inherit; }
   backdrop-filter: blur(6px);
   padding: 20px 0;
   align-content: center;
+  padding-bottom: 50px;
 }
 .header .namespace{
   font-family: "Amoresa", Arial, serif;
@@ -51,7 +52,12 @@ a { color: inherit; }
   font-size: 18px;
   color: var(--text);
   position:fixed;
-  top:0; left: 45%;
+  position: absolute;
+  align-self: center;
+  top: 100%;
+  left: 50%;
+  -ms-transform: translate(-50%, -200%);
+  transform: translate(-50%, -200%);
   margin-bottom: 10px;
 }
 
@@ -63,6 +69,7 @@ a { color: inherit; }
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+  display: block;
   
 }
 
@@ -90,9 +97,12 @@ a { color: inherit; }
   flex-wrap: wrap;
   justify-content: center;
   gap: 8px;
-  position: relative;
-  left: 50%; 
-  bottom: -10px;
+  position: absolute;
+  align-self: center;
+  top: 100%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -125%);
 }
 .header a{
   display: inline-flex;
