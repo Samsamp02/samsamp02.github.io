@@ -16,8 +16,16 @@
 html, body { height: 100%; }
 img { max-width: 100%; display: block; }
 
+@font-face {
+  font-family: "Ovo";
+  src: url(Ovo/Ovo-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Amoresa";
+  src: url(Amoresa/Amoresa\ Regular.woff2) format("woff2");
+}
 body {
-  font-family: "glacial-indifference-regular", Arial, sans-serif;
+  font-family: "Ovo", Arial, serif;
   background: var(--page-bg);
   color: var(--text);
   margin: 0;
@@ -34,13 +42,22 @@ a { color: inherit; }
   z-index: 999;
   background: var(--header-bg);
   backdrop-filter: blur(6px);
-  padding: 10px 0;
-  
+  padding: 20px 0;
+  align-content: center;
+}
+.header .namespace{
+  font-family: "Amoresa", Arial, serif;
+  font-weight: 1;
+  font-size: 18px;
+  color: var(--text);
+  position:fixed;
+  top:0; left: 45%;
+  margin-bottom: 10px;
 }
 
 .header .header-row{
   max-width: var(--maxw);
-  margin: 0px auto;
+  margin-top: 10px;
   padding: 0 var(--pad);
   display: flex;
   align-items: center;
@@ -74,9 +91,9 @@ a { color: inherit; }
   justify-content: center;
   gap: 8px;
   position: relative;
-  left: 25%;
+  left: 50%; 
+  bottom: -10px;
 }
-
 .header a{
   display: inline-flex;
   align-items: center;
@@ -104,7 +121,7 @@ a { color: inherit; }
   .menu-btn{ 
     display: inline-flex;
     position: absolute;
-    top: 10px;
+    top: 7px;
     left: 10px;
   }
   .header-buttons{
@@ -119,7 +136,7 @@ a { color: inherit; }
   }
   .header.nav-open .header-buttons{ display: flex; }
   .header a{ width: 100%; font-size: 16px; padding: 12px; }
-  .header { padding: 35px; }
+  .header { padding: 24px; }
 }
 
 /* ---------- Layout helpers ---------- */
@@ -221,7 +238,7 @@ button.btn{
 /* ---------- Photo grid ---------- */
 .gallery{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(2, minmax(160px, 1fr));
   gap: 18px;
   margin: 14px 0 26px;
 }
@@ -250,10 +267,6 @@ button.btn{
   transition: transform 0.2s ease;
 }
 
-.menu-item img:hover{
-  transform: scale(1.04);
-}
-
 .menu-item span{
   margin-top: 8px;
   font-weight: 600;
@@ -261,10 +274,10 @@ button.btn{
   color: #444;
 }
 /* responsive columns */
-@media (max-width: 980px){
+@media (max-width: 1980px){
   .gallery{ grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 420px){
+@media (max-width: 980px){
   .gallery{ grid-template-columns: 1fr; }
 }
 
@@ -273,6 +286,7 @@ form{
   display: grid;
   gap: 12px;
   text-align: left;
+  font-family: "Ovo", Arial, serif;
 }
 
 label{
@@ -296,6 +310,7 @@ select{
   outline: none;
   font-size: 16px;
   background: rgba(255,255,255,0.9);
+  font-family: "Ovo", Arial, serif;
 }
 
 .textBox:focus,
@@ -303,6 +318,7 @@ input:focus,
 select:focus{
   border-color: rgba(107,126,211,0.65);
   box-shadow: 0 0 0 4px rgba(107,126,211,0.18);
+  font-family: "Ovo", Arial, serif;
 }
 
 .food-choice{
@@ -326,7 +342,7 @@ select:focus{
 
 /* Shown state */
 .food-choice-wrap.is-visible {
-  max-height: 300px;   
+  max-height: 375px;   
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
@@ -335,6 +351,14 @@ select:focus{
 #statusMsg{
   margin: 6px 0 0;
   font-weight: 800;
+}
+
+.large-img{
+  width: 100%;
+  max-width: 500px;
+  border-radius: 14px;
+  box-shadow: var(--shadow-soft);
+  margin: 12px auto;
 }
 
 /* ---------- Schedule list ---------- */

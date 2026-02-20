@@ -113,6 +113,7 @@ form.addEventListener("submit", async (e) => {
   const main = mainSelect.value;
   const side = sideSelect.value;
   const desert = desertSelect.value;
+  const comment = document.getElementById("comment").value.trim();
 
   // Basic validation
   if (!firstName || !lastName || !email || !attendance || !phone) {
@@ -160,6 +161,7 @@ form.addEventListener("submit", async (e) => {
         main,
         side,
         desert,
+        comment,
         createdAt: serverTimestamp()
       });
     } else {

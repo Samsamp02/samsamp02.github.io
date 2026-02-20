@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Menu - Marissa & Joel Wedding</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<div class="header" id="site-header">
+    <div class="namespace">Marissa & Joël</div>
+    <div class="header-row">
+      <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+      <div class="header-buttons" id="header-buttons-mobile">
+        <a href="index.html">Home</a>
+        <a href="rsvp.html">RSVP</a>
+        <a href="menu.html" class="active">Menu</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="faq.html">FAQ</a>
+        <a href="countdown.html">Countdown</a>
+      </div>
+   </div>
+</div>
+  
+  <script>
+  const header = document.getElementById('site-header');
+  const btn = document.getElementById('menu-btn');
+
+  btn.addEventListener('click', () => {
+    const isOpen = header.classList.toggle('nav-open');
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+</script>
+<main class ="container">
+    <section id="menu-items"class="card center">
+        <h2 style="margin-top:16px;">Menu options</h2>
+        All options are gluten free
+        <div class="gallery">
+            <h2>Mains</h2>
+  
+          <div class="menu-item">
+            <img src="img/food_chicken.jpg" alt="Menu chicken">
+            <span>Chicken supreme, rosemary, wine & cream</span>
+          </div>
+      
+          <div class="menu-item">
+            <img src="img/food_pork.jpg" alt="Menu pork">
+            <span>Roast pork loin, apples, brandy and cream</span>
+          </div>
+      
+          <div class="menu-item">
+            <span><h2>Sides</h2></span>
+            <span>Woodland mushroom soup, fresh cream</span>
+            <span>Kale caesar salad, parmesan and caper crumbs</span><br>
+          </div>
+      
+         <div class="menu-item">
+            <span><h2>Deserts</h2></span>
+            <span>Vanilla bean crème brûlée with fresh berries</span>
+            <span>Blueberry cheesecake, chocolate shavings, chantilly cream</span>
+         </div>
+
+        </div>
+      </section>
+</main>
+</body>
+</html>

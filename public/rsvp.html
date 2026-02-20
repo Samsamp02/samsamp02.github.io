@@ -8,12 +8,15 @@
 </head>
 
 <body>
+ 
   <div class="header" id="site-header">
+    <div class="namespace">Marissa & Joël</div>
     <div class="header-row">
       <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
       <div class="header-buttons" id="header-buttons-mobile">
         <a href="index.html">Home</a>
         <a href="rsvp.html" class="active">RSVP</a>
+        <a href="menu.html">Menu</a>
         <a href="schedule.html">Schedule</a>
         <a href="faq.html">FAQ</a>
         <a href="countdown.html">Countdown</a>
@@ -68,11 +71,12 @@
         </div>
         
         <div id="foodChoices" class="food-choice-wrap">
-          <label class="food-choice-label" for="main">Choose a main:   <a href="index.html#menu-items"> (view images on home page)</a></label>
+          <label class="food-choice-label" for="main">Choose a main:   <a href="index.html#menu-items"> (view menu)</a></label>
           <select class="food-choice" name="main" id="main">
             <option value="" disabled selected>Select an option</option>
             <option value="chicken">Chicken</option>
             <option value="pork">Pork</option>
+            <option value="vegetarian">Vegetarian</option>
           </select>
         
           <label class="food-choice-label" for="side">Choose a side:</label>
@@ -89,14 +93,24 @@
           <option value="creme-brule">Crème brûlé</option>
           <option value="cheesecake">Cheesecake</option>
         </select>
+
+        <div>
+          <label class="food-choice-label" for="comment">Comments:</label>
+          <input class="textBox" type="text" id="comment" name="comment" placeholder="Optional">
+        </div>
+
       </div>
 
-
-        <button type="submit" class="btn">Submit RSVP</button>
-        <p id="statusMsg"></p>
+        <div>
+          <button type="submit" class="btn">Submit RSVP</button>
+          <p id="statusMsg"></p>
+        </div>
+        
       </form>
     </section>
   </main>
+
+  <img class="large-img" src="img/IMG_8391.jpg">
 
   <footer>
     <p>Thank you for letting us know 💜</p>
