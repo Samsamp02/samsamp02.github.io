@@ -52,20 +52,19 @@ a { color: inherit; }
   font-size: 18px;
   color: var(--text);
   position:fixed;
-  position: absolute;
   align-self: center;
   top: 100%;
   left: 50%;
   -ms-transform: translate(-50%, -200%);
-  transform: translate(-50%, -200%);
+  transform: translate(-50%, -210%);
   margin-bottom: 10px;
 }
 
 .header .header-row{
   max-width: var(--maxw);
+  min-width: 100%;
   margin-top: 10px;
   padding: 0 var(--pad);
-  display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
@@ -127,7 +126,7 @@ a { color: inherit; }
 }
 
 /* mobile nav collapse */
-@media (max-width: 760px){
+@media (max-width: 945px){
   .menu-btn{ 
     display: inline-flex;
     position: absolute;
@@ -135,6 +134,7 @@ a { color: inherit; }
     left: 10px;
   }
   .header-buttons{
+    position: relative;
     display: none;
     width: 85%;
     flex-direction: column;
@@ -142,11 +142,15 @@ a { color: inherit; }
     gap: 8px;
     padding: 10px var(--pad) 4px;
     margin-left: 50px;
-    left: 0;
+    top: auto;
+    left: auto;
+    transform: none;
+    -ms-transform: none;
   }
   .header.nav-open .header-buttons{ display: flex; }
-  .header a{ width: 100%; font-size: 16px; padding: 12px; }
-  .header { padding: 24px; }
+  .header a{ display: inline-block; width: 100%; font-size: 16px; padding: 12px;  position: inherit; }
+  .header {  display:inline-block;}
+  .header .namespace{ top: 0%; -ms-transform: translate(-50%); transform: translate(-50%);  position: inherit; }
 }
 
 /* ---------- Layout helpers ---------- */
