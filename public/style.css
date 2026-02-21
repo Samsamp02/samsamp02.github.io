@@ -231,8 +231,8 @@ button.btn{
 
 .hero img{
   width: 100%;
-  height: clamp(320px, 55vw, 620px);
-  object-fit: cover;
+  height: clamp(1fr, 55vw, 820px);
+  object-fit: cover;  
   
 }
 .hero div {
