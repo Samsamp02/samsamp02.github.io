@@ -30,6 +30,7 @@ const firebaseConfig = {
 // ===============================
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+loadInvitedPhones();
 
 // ===============================
 // DOM elements
@@ -85,19 +86,55 @@ document.addEventListener("DOMContentLoaded", () => {
 
   phoneInput.addEventListener("input", (e) => {
     let numbers = e.target.value.replace(/\D/g, "");
-    numbers = numbers.substring(0, 10);
-
+    numbers = numbers.substring(0, 11);
+    const aussieCheckbox = document.getElementById("aussie");
+    const aussieLabel = document.getElementById("aussie-label");
+    
     let formatted = numbers;
-    if (numbers.length > 9) {//aussie case
-      formatted = `${numbers.slice(0,4)}-${numbers.slice(4,7)}-${numbers.slice(7,10)}`;
-    }
-    else if (numbers.length > 6) {
+    if (numbers.length > 10) {//aussie case
+      formatted = `${numbers.slice(0,4)}-${numbers.slice(4,7)}-${numbers.slice(7)}`;
+      statusMsg.textContent = "Please verify your phone number is correct (aussie case).";
+      statusMsg.style.color = "orange";
+     
+      aussieCheckbox.style.display = "inline-block";
+      aussieLabel.style.display = "inline-block";
+
+    }else if (numbers.length === 10) {
       formatted = `${numbers.slice(0,3)}-${numbers.slice(3,6)}-${numbers.slice(6)}`;
+      statusMsg.textContent = "";
+      aussieCheckbox.checked = false;
+      aussieCheckbox.style.display = "none";
+      aussieLabel.style.display = "none";
+  
+    }
+    else if (numbers.length > 6 && numbers.length <= 10) {
+      formatted = `${numbers.slice(0,3)}-${numbers.slice(3,6)}-${numbers.slice(6)}`;
+      statusMsg.textContent = "Please enter valid phone number.";
+      aussieCheckbox.style.display = "none";
+      aussieLabel.style.display = "none";
+       statusMsg.style.color = "black";
     } else if (numbers.length > 3) {
       formatted = `${numbers.slice(0,3)}-${numbers.slice(3)}`;
+      statusMsg.textContent = "Please enter valid phone number.";
+      aussieCheckbox.style.display = "none";
+      aussieLabel.style.display = "none";
+       statusMsg.style.color = "black";
+    }else if (numbers.length > 0) {
+       statusMsg.textContent = "Please enter valid phone number.";
+       statusMsg.style.color = "black";
+    }else{
+      statusMsg.textContent = "";
     }
 
     e.target.value = formatted;
+
+    if (!invitedPhones.has(formatted)) {
+        statusMsg.textContent = "Sorry — this phone number is not on the invite list.";
+        statusMsg.style.color = "red";
+      } else {
+       statusMsg.textContent = "Phone verified!";
+        statusMsg.style.color = "green";
+      }
 
     });
 });
@@ -117,6 +154,11 @@ sideSelect.addEventListener("change", () => {
 
 });
 
+//phone verification before submit
+form.addEventListener("phone", async (e) => {
+  const phoneInput = document.getElementById("phone").value;
+
+});
 
 
 // ===============================
@@ -136,12 +178,23 @@ form.addEventListener("submit", async (e) => {
   const desert = desertSelect.value;
   const comment = document.getElementById("comment").value.trim();
 
+  const aussieCheckbox = document.getElementById("aussie");
+  const isAussie = aussieCheckbox.checked;
+
   // Basic validation
   if (!firstName || !lastName || !email || !attendance || !phone) {
     statusMsg.textContent = "Please fill out all fields.";
     statusMsg.style.color = "red";
     return;
-  } else if (phone.length!=12) {
+  }else if (isAussie && phone.length != 13) {
+    statusMsg.textContent = "Please enter a valid Australian phone number.";
+    statusMsg.style.color = "red";
+    return;
+  } else if (!isAussie && phone.length === 13) {
+    statusMsg.textContent = "Please confirm you have an australian phone number.";
+    statusMsg.style.color = "red";
+    return;
+  } else if (phone.length!=12 && !isAussie) {
     statusMsg.textContent = "Please enter a valid phone number.";
     statusMsg.style.color = "red";
     return;
@@ -151,6 +204,17 @@ form.addEventListener("submit", async (e) => {
     return;
   } else {
     statusMsg.textContent = "";
+  }
+
+  const phoneInput = document.getElementById("phone").value;
+  
+  if (!invitedPhones.has(phoneInput)) {
+    statusMsg.textContent = "Sorry — this phone number is not on the invite list.";
+    statusMsg.style.color = "red";
+    return;
+  }else{
+  statusMsg.textContent = "Phone verified Proceeding...";
+  statusMsg.style.color = "green";
   }
 
   try {
@@ -212,3 +276,23 @@ form.addEventListener("submit", async (e) => {
     }
   }
 });
+
+// =============================
+// Load invited phone numbers
+// =============================
+
+let invitedPhones = new Set();
+
+async function loadInvitedPhones() {
+  try {
+    const response = await fetch("./invitedPhones.json");
+    const data = await response.json();
+    invitedPhones = new Set(data);
+    console.log("Invited list loaded:", invitedPhones.size);
+  } catch (err) {
+    console.error("Failed to load invited list:", err);
+  }
+}
+
+
+

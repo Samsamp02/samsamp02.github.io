@@ -36,8 +36,20 @@
     <section class="card">
       <h2 class="center">RSVP for Marissa & Joel</h2>
       <p class="center" style="margin-top:6px;">We’re excited to celebrate with you!</p>
-
+      <p class="center">Please provide your mobile phone number, which will serve as your RSVP code.<br>
+      It will be verified once submitted.</p>
+      
       <form id="rsvpForm">
+         <div>
+          <label for="phone">Phone number</label>
+          <input type="tel"
+          id="phone"
+          name="phone"
+          placeholder="705-123-1234"
+          required class="textBox" type="phone" id="phone" name="phone" required>
+        </div>
+
+
         <div>
           <label for="name">First Name</label>
           <input class="textBox" type="text" id="name" name="name" required>
@@ -52,15 +64,7 @@
           <label for="email">Email</label>
           <input class="textBox" type="email" id="email" name="email" required>
         </div>
-        <div>
-          <label for="phone">Phone number</label>
-          <input type="tel"
-          id="phone"
-          name="phone"
-          placeholder="705-123-1234"
-          required class="textBox" type="phone" id="phone" name="phone" required>
-        </div>
-
+       
         <div>
           <label for="attendance">Will you attend?</label>
           <select class="textBox" id="attendance" name="attendance" required>
@@ -83,7 +87,7 @@
           <select class="food-choice" name="side" id="side">
             <option value="" disabled selected>Select an option</option>
             <option value="first">First course</option>
-            <option value="desert">Desert</option>
+            <option value="desert">Dessert</option>
           </select>
        
 
@@ -102,6 +106,8 @@
       </div>
 
         <div>
+          <input type="checkbox" id="aussie" name="aussie" style="display:none;">
+          <label for="aussie" id="aussie-label" style="display:none;">I am an Australian resident</label><br><br>
           <button type="submit" class="btn">Submit RSVP</button>
           <p id="statusMsg"></p>
         </div>
