@@ -268,7 +268,7 @@ button.btn{
   align-items: center;
   padding: 10px 0 10px 20px;
   box-sizing: border-box;
-
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);;
 }
 
 .palette-right {
