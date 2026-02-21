@@ -31,7 +31,7 @@ const searchEl = document.getElementById("search");
 const countPill = document.getElementById("countPill");
 const exportBtn = document.getElementById("exportBtn");
 
-// If these are null, your HTML IDs don't match.
+// If these are null
 if (!rowsEl || !statusMsg || !searchEl || !countPill || !exportBtn) {
   console.error("Missing one or more required HTML elements (rows/statusMsg/search/countPill/exportBtn).");
 }

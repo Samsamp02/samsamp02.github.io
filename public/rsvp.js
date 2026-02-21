@@ -221,13 +221,13 @@ form.addEventListener("submit", async (e) => {
     }*/
     
     //upload to database
-    const emailId = email.trim().toLowerCase(); 
+    const phoneId = phone.trim(); 
     if (attendance === "yes") { 
-      await setDoc(doc(db, "rsvps", emailId), {
+      await setDoc(doc(db, "rsvps", phoneId), {
         firstName,
         lastName,
-        email: emailId,
-        phone,
+        email: email.trim().toLowerCase(),
+        phone: phoneId,
         attendance,
         main,
         side,
@@ -236,11 +236,11 @@ form.addEventListener("submit", async (e) => {
         createdAt: serverTimestamp()
       });
     } else {
-      await setDoc(doc(db, "rsvps", emailId), {
+      await setDoc(doc(db, "rsvps", phoneId), {
         firstName,
         lastName,
-        email: emailId,
-        phone,
+        email: email.trim().toLowerCase(),
+        phone: phoneId,
         attendance,
         createdAt: serverTimestamp()
       });
