@@ -298,6 +298,22 @@ button.btn{
   transform: scale(1.05);
 }
 
+.palette-container .palette-text{
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 18px;
+  text-align: right;
+  color: white;
+  background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0));
+}
+
+.palette-container .palette-text p{
+  margin: 6px 0 0;
+  font-weight: 400;
+  color: white;
+  font-size: clamp(14px, 3.6vw, 18px);
+}
+
 
 @media (max-width: 800px) {
   .palette-container {max-height: 700px; }
