@@ -299,7 +299,7 @@ button.btn{
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .palette-container {max-height: 700px; }
   .palette-side {transform: scale(0.75); padding:0; margin: -30px ; width: 100px;}
   
