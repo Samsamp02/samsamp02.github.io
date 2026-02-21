@@ -298,6 +298,10 @@ button.btn{
   transform: scale(1.05);
 }
 
+@media (max-width: 900px) {
+  .palette-container {max-height: 700px;}
+  .palette-right {transform: scale(0.75);}
+}
 /* ---------- Photo grid ---------- */
 .gallery{
   display: grid;
