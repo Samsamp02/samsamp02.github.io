@@ -254,7 +254,7 @@ form.addEventListener("submit", async (e) => {
     console.error("Firebase error:", error);
 
     if (error.code === "permission-denied") {
-      statusMsg.textContent = "This email has already RSVP’d.";
+      statusMsg.textContent = "This phone number has already RSVP’d.";
       statusMsg.style.color = "orange";
     } else {
       statusMsg.textContent = "Something went wrong. Please try again.";
