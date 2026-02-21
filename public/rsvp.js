@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
         statusMsg.textContent = "Sorry — this phone number is not on the invite list.";
         statusMsg.style.color = "red";
       } else {
-       statusMsg.textContent = "Phone verified!";
+       statusMsg.textContent = "Phone verified! You are on the invite list.";
         statusMsg.style.color = "green";
       }
 
