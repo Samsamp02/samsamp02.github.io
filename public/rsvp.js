@@ -88,7 +88,10 @@ document.addEventListener("DOMContentLoaded", () => {
     numbers = numbers.substring(0, 10);
 
     let formatted = numbers;
-    if (numbers.length > 6) {
+    if (numbers.length > 9) {//aussie case
+      formatted = `${numbers.slice(0,4)}-${numbers.slice(4,7)}-${numbers.slice(7,10)}`;
+    }
+    else if (numbers.length > 6) {
       formatted = `${numbers.slice(0,3)}-${numbers.slice(3,6)}-${numbers.slice(6)}`;
     } else if (numbers.length > 3) {
       formatted = `${numbers.slice(0,3)}-${numbers.slice(3)}`;
