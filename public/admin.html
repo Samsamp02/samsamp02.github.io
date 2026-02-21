@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RSVP Responses (Admin)</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .wrap { max-width: 1200px; margin: 24px auto; padding: 0 16px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 10px; border-bottom: 1px solid #ddd; vertical-align: top; }
+    th { text-align: left; position: sticky; top: 0; background: white; }
+    .muted { opacity: 0.75; font-size: 0.95em; }
+    .controls { display:flex; gap:12px; flex-wrap: wrap; align-items:center; margin: 12px 0 18px; }
+    input { padding: 8px 10px; }
+    button { padding: 8px 12px; cursor: pointer; }
+    .pill { display:inline-block; padding: 3px 8px; border-radius: 999px; border: 1px solid #ccc; font-size: 0.9em; }
+  </style>
+</head>
+
+ <div class="header" id="site-header">
+    <div class="namespace">Marissa & Joël</div>
+    <div class="header-row">
+      <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+      <div class="header-buttons" id="header-buttons-mobile">
+        <a href="index.html">Home</a>
+        <a href="rsvp.html">RSVP</a>
+        <a href="menu.html">Menu</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="faq.html">FAQ</a>
+        <a href="countdown.html">Countdown</a>
+      </div>
+    </div>
+  </div>
+<body>
+  <div class="wrap">
+    <h2>RSVP Responses</h2>
+    <p class="muted">Live view of all RSVP submissions.</p>
+
+    <div class="controls">
+      <input id="search" type="text" placeholder="Search name / email / phone..." />
+      <span class="pill" id="countPill">0</span>
+    </div>
+
+    <div id="statusMsg" class="muted"></div>
+
+    <div style="overflow:auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>Created</th>
+            <th>First</th>
+            <th>Last</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Attend</th>
+            <th>Main</th>
+            <th>choice</th>
+            <th>side</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script type="module" src="./admin.js"></script>
+</body>
+</html>
+
