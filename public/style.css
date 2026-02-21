@@ -271,7 +271,7 @@ button.btn{
   box-shadow: 0 6px 15px rgba(0,0,0,0.4);;
 }
 
-.palette-right {
+.palette-side {
   display: flex;
   flex-direction: column;
   justify-content: space-between; 
@@ -298,9 +298,11 @@ button.btn{
   transform: scale(1.05);
 }
 
-@media (max-width: 900px) {
-  .palette-container {max-height: 700px;}
-  .palette-right {transform: scale(0.75);}
+
+@media (max-width: 600px) {
+  .palette-container {max-height: 700px; }
+  .palette-side {transform: scale(0.75); padding:0; margin: -30px ; width: 100px;}
+  
 }
 /* ---------- Photo grid ---------- */
 .gallery{
