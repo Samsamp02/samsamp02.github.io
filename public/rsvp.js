@@ -129,10 +129,10 @@ document.addEventListener("DOMContentLoaded", () => {
     e.target.value = formatted;
 
     if (!invitedPhones.has(formatted)) {
-        statusMsg.textContent = "Sorry — this phone number is not on the invite list.";
+        statusMsg.textContent = "Sorry — this phone number is not on the guest list.";
         statusMsg.style.color = "red";
       } else {
-       statusMsg.textContent = "Phone verified! You are on the invite list.";
+       statusMsg.textContent = "Phone verified! You are on the guest list.";
         statusMsg.style.color = "green";
       }
 
@@ -195,7 +195,7 @@ form.addEventListener("submit", async (e) => {
   const phoneInput = document.getElementById("phone").value;
   
   if (!invitedPhones.has(phoneInput)) {
-    statusMsg.textContent = "Sorry — this phone number is not on the invite list.";
+    statusMsg.textContent = "Sorry — this phone number is not on the guest list.";
     statusMsg.style.color = "red";
     return;
   }else{
