@@ -217,7 +217,7 @@ button.btn{
 
 /* full-width buttons on small screens */
 @media (max-width: 760px){
-  .btn, button.btn{ width: 100%; }
+  .btn, button.btn{ width: 50%; }
 }
 
 /* ---------- Hero (Home banner) ---------- */
