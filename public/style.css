@@ -2,6 +2,7 @@
   --header-bg: #9c8674c2;
   --accent: #8f8d7f;
   --page-bg: #6e5a3c71;
+  --tb-brown: #9c867488;
   --test-blue:#6bb8e4;
   --text: #2b2b2b;
   --maxw: 980px;
@@ -173,6 +174,10 @@ a { color: inherit; }
   padding: 18px;
   margin: 14px auto;
 }
+.card div span{
+  font-size: 20px;
+  font-weight: 2000;
+}
 
 .center { text-align: center; }
 
@@ -247,7 +252,7 @@ button.btn{
   text-align: center;
   align-self: center;
   color: white;
-  background-color: #9c867488;
+  background-color: var(--tb-brown);
   left: 10%;
   right:10%;
   width: fit-content;
@@ -367,6 +372,13 @@ button.btn{
   box-shadow: var(--shadow-soft);
 }
 
+.byeOR{
+  text-decoration: underline;
+}
+@media (min-width: 1000px){
+
+  .byeOR{display:none;}
+}
 .menu-item{
   display: flex;
   flex-direction: column;
