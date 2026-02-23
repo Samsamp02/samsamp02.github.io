@@ -229,7 +229,7 @@ form.addEventListener("submit", async (e) => {
         }
       )
       .then(function(response) {
-          console.log("Email successfully sent, status:", response.status);
+          console.log("Email successfully sent, status:", response.status);//200=ok
       })
       .catch(function(error) {
           console.error("Email failed to send:", error);
@@ -258,7 +258,7 @@ form.addEventListener("submit", async (e) => {
         }
       )
       .then(function(response) {
-          console.log("Email successfully sent:", response.status);
+          console.log("Email successfully sent, status:", response.status);
       })
       .catch(function(error) {
           console.error("Email failed to send:", error);
