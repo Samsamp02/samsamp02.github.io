@@ -109,7 +109,10 @@
           <button type="submit" class="btn" onclick="window.scrollTo(0, 0);">Submit RSVP</button>
           
         </div>
-        
+
+        <!--dummy text box for bot catching-->
+        <input type="text" id="honeyPot" style="display:none">
+
       </form>
     </section>
   </main>
@@ -126,5 +129,8 @@
   </footer>
 
   <script type="module" src="./rsvp.js"></script>
+  <!--email notifications-->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>emailjs.init("pmKzvrKv2qma7owvx");</script>
 </body>
 </html>

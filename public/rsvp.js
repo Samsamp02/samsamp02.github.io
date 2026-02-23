@@ -144,7 +144,8 @@ document.addEventListener("DOMContentLoaded", () => {
 // ===============================
 form.addEventListener("submit", async (e) => {
   e.preventDefault(); // prevent page reload
-
+  
+  if (document.getElementById("honeyPot").value !== "") return;//honeypot check, should be empty, if not likely a bot
   // Read input values
   const firstName = document.getElementById("name").value.trim();
   const lastName = document.getElementById("lastName").value.trim();
@@ -215,6 +216,26 @@ form.addEventListener("submit", async (e) => {
         comment,
         createdAt: serverTimestamp()
       });
+
+      emailjs.send("service_cn6x97v", "template_u8hkdgg",
+        {
+          to_email: "marissa.prevost29@gmail.com",
+          guest_name: firstName + " " + lastName,
+          guest_email: email,
+          guest_phone: phone,
+          attending: attendance,
+          meal: main + " / " + side + " / " + desert,
+          message: comment || "No additional comment"
+        }
+      )
+      .then(function(response) {
+          console.log("Email successfully sent, status:", response.status);
+      })
+      .catch(function(error) {
+          console.error("Email failed to send:", error);
+      });
+      
+      
     } else {
       await setDoc(doc(db, "rsvps", phoneId), {
         firstName,
@@ -224,6 +245,25 @@ form.addEventListener("submit", async (e) => {
         attendance,
         createdAt: serverTimestamp()
       });
+
+      emailjs.send("service_cn6x97v", "template_u8hkdgg",
+        {
+          to_email: "marissa.prevost29@gmail.com",
+          guest_name: firstName + " " + lastName,
+          guest_email: email,
+          guest_phone: phone,
+          attending: attendance,
+          meal: "N/A",
+          message: comment || "No additional comment"
+        }
+      )
+      .then(function(response) {
+          console.log("Email successfully sent:", response.status);
+      })
+      .catch(function(error) {
+          console.error("Email failed to send:", error);
+      });
+
     }
 
     statusMsg.textContent = "RSVP saved! 🎉 Thank you!";
