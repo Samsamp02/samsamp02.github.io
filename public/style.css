@@ -3,7 +3,7 @@
   --accent: #8f8d7f;
   --page-bg: #6e5a3c71;
   --tb-brown: #9c867488;
-  --test-blue:#6bb8e4;
+  --card-bg:#ffffff7f;
   --text: #2b2b2b;
   --maxw: 980px;
   --radius: 0px;
@@ -168,7 +168,7 @@ a { color: inherit; }
 }
 
 .card{/* simple container with white bg for sections */
-  background: rgba(255,255,255,0.70);
+  background: var(--card-bg);
   border-radius: var(--radius);
   box-shadow: var(--shadow-soft);
   padding: 18px;
@@ -184,16 +184,17 @@ a { color: inherit; }
 /*------- FAQ details -----------*/
 .faq h2{
   margin-top: 20px;
+  background-color: var(--tb-brown);
+  display: inline-flex;
+  padding: 2px;
+  border: 1px solid rgba(0,0,0,0.08);
 }
 
 .faq details{/*dropdown*/
   border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 3px;
   padding: 10px 14px;
-  margin: 15px 0;
-  background: rgba(255,255,255,0.6);
-  background-color: var(--tb-brown);
-
+  margin: 0px;  
+  background: var(--card-bg);
 }
 
 .faq summary{
