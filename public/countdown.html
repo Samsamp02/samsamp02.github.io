@@ -22,17 +22,7 @@
 </div>
 
 <body>
-  
-   <script>
-  const header = document.getElementById('site-header');
-  const btn = document.getElementById('menu-btn');
-
-  btn.addEventListener('click', () => {
-    const isOpen = header.classList.toggle('nav-open');
-    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  });
-</script>
-
+  <script type="module" src="./header-script.js"></script>
 <main class="container">
   <section class="card faq">
     <header class="center">
@@ -42,25 +32,6 @@
     <img class="large-img" src="img/IMG_8203.jpg" alt="Photo 1">
   </section>
 </main>
-<script>
-  var countDownDate = new Date("August 15, 2026").getTime();
-  var x = setInterval(function() {
-  var now = new Date().getTime();
-  var distance = countDownDate - now;
-    
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-  document.getElementById("counter").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-  document.getElementById("counter").style.fontSize = "24px";
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("counter").innerHTML = "You missed it :(";
-  }
-}, 1000);
-</script>
+<script type="module" src="./countdown.js"></script><!--import functions for timer calculation-->
 </body>
 </html>

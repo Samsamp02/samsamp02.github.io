@@ -4,13 +4,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
 import {
   getFirestore,
-  collection,
   setDoc,
   doc,
   serverTimestamp,
-  query,
-  where,
-  getDocs
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
 // ===============================
@@ -74,16 +70,18 @@ if (attendanceSelect.value === "yes") {
   foodChoicesWrap.classList.add("is-visible");
 }
 
-const PhoneFormatted = false;
+//DOM loader, allows for phone number response
+//allows for the phone number verification to work without needing to refresh the page after loading the invited list
+//locally loaded JSON
 document.addEventListener("DOMContentLoaded", () => {
   const phoneInput = document.getElementById("phone");
-  const phoneError = statusMsg;
 
   // Debug: confirm we found the input
   console.log("phoneInput found?", phoneInput);
 
   if (!phoneInput) return; // stops if id doesn't match
 
+  //allows for live phone number formatting and verification against the guest list
   phoneInput.addEventListener("input", (e) => {
     let numbers = e.target.value.replace(/\D/g, "");
     numbers = numbers.substring(0, 11);
@@ -91,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const aussieLabel = document.getElementById("aussie-label");
     
     let formatted = numbers;
-    if (numbers.length > 10) {//aussie case
+    if (numbers.length > 10) {//valid aussie case
       formatted = `${numbers.slice(0,4)}-${numbers.slice(4,7)}-${numbers.slice(7)}`;
       statusMsg.textContent = "Please verify your phone number is correct (aussie case).";
       statusMsg.style.color = "orange";
@@ -99,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
       aussieCheckbox.style.display = "inline-block";
       aussieLabel.style.display = "inline-block";
 
-    }else if (numbers.length === 10) {
+    }else if (numbers.length === 10) {//normal case with valid number
       formatted = `${numbers.slice(0,3)}-${numbers.slice(3,6)}-${numbers.slice(6)}`;
       statusMsg.textContent = "";
       aussieCheckbox.checked = false;
@@ -107,25 +105,26 @@ document.addEventListener("DOMContentLoaded", () => {
       aussieLabel.style.display = "none";
   
     }
-    else if (numbers.length > 6 && numbers.length <= 10) {
+    else if (numbers.length > 6 && numbers.length <= 10) {//123-123-X, X=1-3 chars
       formatted = `${numbers.slice(0,3)}-${numbers.slice(3,6)}-${numbers.slice(6)}`;
       statusMsg.textContent = "Please enter valid phone number.";
       aussieCheckbox.style.display = "none";
       aussieLabel.style.display = "none";
        statusMsg.style.color = "black";
-    } else if (numbers.length > 3) {
+    } else if (numbers.length > 3) {//123-X, X=1-3 chars
       formatted = `${numbers.slice(0,3)}-${numbers.slice(3)}`;
       statusMsg.textContent = "Please enter valid phone number.";
       aussieCheckbox.style.display = "none";
       aussieLabel.style.display = "none";
        statusMsg.style.color = "black";
-    }else if (numbers.length > 0) {
+    }else if (numbers.length > 0) {//no phonee number case
        statusMsg.textContent = "Please enter valid phone number.";
        statusMsg.style.color = "black";
     }else{
       statusMsg.textContent = "";
     }
 
+    //replace input with formatted version
     e.target.value = formatted;
 
     if (!invitedPhones.has(formatted)) {
@@ -140,15 +139,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-//phone verification before submit
-form.addEventListener("phone", async (e) => {
-  const phoneInput = document.getElementById("phone").value;
-
-});
-
-
 // ===============================
-// Form submit handler
+// Form submit handler (btn press)
 // ===============================
 form.addEventListener("submit", async (e) => {
   e.preventDefault(); // prevent page reload
@@ -167,7 +159,7 @@ form.addEventListener("submit", async (e) => {
   const aussieCheckbox = document.getElementById("aussie");
   const isAussie = aussieCheckbox.checked;
 
-  // Basic validation
+  // Basic validation (not empty and valid formats)
   if (!firstName || !lastName || !email || !attendance || !phone) {
     statusMsg.textContent = "Please fill out all fields.";
     statusMsg.style.color = "red";
@@ -192,8 +184,9 @@ form.addEventListener("submit", async (e) => {
     statusMsg.textContent = "";
   }
 
+  //double phone verification, in case someone tries to submit without using the input event (e.g. copy-paste or autofill)
+  //just in case
   const phoneInput = document.getElementById("phone").value;
-  
   if (!invitedPhones.has(phoneInput)) {
     statusMsg.textContent = "Sorry — this phone number is not on the guest list.";
     statusMsg.style.color = "red";
@@ -207,19 +200,6 @@ form.addEventListener("submit", async (e) => {
     statusMsg.textContent = "Submitting...";
     statusMsg.style.color = "black";
 
-    /* Prevent duplicate RSVP by email
-    const q = query(
-      collection(db, "rsvps"),
-      where("email", "==", email)
-    );
-    const existing = await getDocs(q);
-
-    if (!existing.empty) {
-      statusMsg.textContent = "This email has already RSVP’d.";
-      statusMsg.style.color = "orange";
-      return;
-    }*/
-    
     //upload to database
     const phoneId = phone.trim(); 
     if (attendance === "yes") { 
@@ -251,6 +231,8 @@ form.addEventListener("submit", async (e) => {
     form.reset();
 
   } catch (error) {
+    //Firebase handles the write of numbers, will fail if duplicate number
+    //rules are set so that phone number (doc id) can only be written once, a second time will result in "permission-denied"
     console.error("Firebase error:", error);
 
     if (error.code === "permission-denied") {
@@ -268,7 +250,6 @@ form.addEventListener("submit", async (e) => {
 // =============================
 
 let invitedPhones = new Set();
-
 async function loadInvitedPhones() {
   try {
     const response = await fetch("./invitedPhones.json");

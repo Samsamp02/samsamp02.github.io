@@ -21,15 +21,8 @@
    </div>
 </div>
   
-  <script>
-  const header = document.getElementById('site-header');
-  const btn = document.getElementById('menu-btn');
+<script type="module" src="./header-script.js"></script>
 
-  btn.addEventListener('click', () => {
-    const isOpen = header.classList.toggle('nav-open');
-    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  });
-</script>
 <main class ="container">
     <section id="menu-items"class="card center">
         <h1 style="margin-top:16px;">Menu options</h1>

@@ -22,17 +22,7 @@
 </div>
 
 <body>
-  
-    <script>
-  const header = document.getElementById('site-header');
-  const btn = document.getElementById('menu-btn');
-
-  btn.addEventListener('click', () => {
-    const isOpen = header.classList.toggle('nav-open');
-    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  });
-</script>
-
+  <script type="module" src="./header-script.js"></script>
    <section class="card center" style="margin: 10px;">  
         <img class="large-img" src="img/schedule.jpg" alt="timeline" style="transform: scale(1.07)">
    </section>

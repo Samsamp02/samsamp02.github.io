@@ -8,7 +8,6 @@
 </head>
 
 <body>
-  
   <div class="header" id="site-header">
     <div class="namespace"><a class="ok" href="index.html">Marissa & Joël</a></div>
     <div class="header-row">
@@ -23,17 +22,11 @@
       </div>
     </div>
   </div>
+  <script type="module" src="./header-script.js"></script>
 
-  <script>
-    const header = document.getElementById('site-header');
-    const btn = document.getElementById('menu-btn');
-    btn.addEventListener('click', () => {
-      const isOpen = header.classList.toggle('nav-open');
-      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
-  </script>
 
   <main class="container">
+    <!--banner image with text overlapped-->
     <section class="hero">
       <img style="height: clamp(420px, 55vw, 820px);"src="img/header_banner.jpg" alt="banner image">
       <div class="hero-text">
@@ -50,6 +43,7 @@
       </h3></label>
       <br>
       
+      <!--dress code image, contains colour theme overlapped-->
       <div class="palette-container">
         <div class="palette-side">
           <div class="palette-box"><img src="img/colour-blue.jpg" alt="dark blue"></div>
@@ -65,7 +59,7 @@
       </div>
       
       
-      
+      <!--img gallery, pictures of bride & groom-->
       <div class="gallery">
         <div>
           <img src="img/old_banner.jpg" alt="Photo 2">
@@ -83,6 +77,7 @@
           <a href="countdown.html"><h2>View countdown</h2></a>
         </div>
         <div>
+          <!--beige background text overlap-->
           <section class="hero">
             <img src="img/IMG_8229.jpg" alt="Photo 4" style="  width: 100%; aspect-ratio: 1 / 1;object-fit: cover;border-radius: 14px;box-shadow: var(--shadow-soft);">
               <div>
@@ -94,7 +89,6 @@
     </section>
   </main>
   <footer>
-    <p></p>
   </footer>
 </body>
 </html>

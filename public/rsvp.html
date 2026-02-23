@@ -23,14 +23,8 @@
       </div>
     </div>
   </div>
-  <script>
-    const header = document.getElementById('site-header');
-    const btn = document.getElementById('menu-btn');
-    btn.addEventListener('click', () => {
-      const isOpen = header.classList.toggle('nav-open');
-      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
-  </script>
+  <script type="module" src="./header-script.js"></script>
+
 
   <main class="container">
     <section class="card" style="font-size: 18px;">
@@ -74,6 +68,7 @@
           </select>
         </div>
         
+        <!--wrap only displays if attendane == yes-->
         <div id="foodChoices" class="food-choice-wrap">
           <label class="food-choice-label" for="main">Choose a main: <a href="menu.html"> (view menu)</a></label>
           <select class="food-choice" name="main" id="main">
@@ -105,11 +100,12 @@
 
       </div>
 
-        <div>
+        <div><!--austrailian number confirmation (more char than canadian number)-->
           <input type="checkbox" id="aussie" name="aussie" style="display:none;">
           <label for="aussie" id="aussie-label" style="display:none;">I am an Australian resident</label>
           <p class="center">Please review the menu before submitting your RSVP</p>
 
+          <!--bring back to top(insure view of status message)-->
           <button type="submit" class="btn" onclick="window.scrollTo(0, 0);">Submit RSVP</button>
           
         </div>

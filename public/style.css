@@ -79,7 +79,7 @@ a { color: inherit; }
   
 }
 
-/* hamburger */
+/* hamburger menu */
 .menu-btn{
   display: none;
   align-items: center;
@@ -97,7 +97,7 @@ a { color: inherit; }
 }
 .menu-btn:hover{ background: rgba(255,255,255,0.55); }
 
-/* links */
+/* header links */
 .header-buttons{
   display: flex;
   flex-wrap: wrap;
@@ -132,7 +132,7 @@ a { color: inherit; }
   background: var(--accent);
 }
 
-/* mobile nav collapse */
+/* mobile nav collapse, formats header nicely for mobile */
 @media (max-width: 945px){
   .menu-btn{ 
     display: inline-flex;
@@ -167,14 +167,14 @@ a { color: inherit; }
   padding: 0 var(--pad);
 }
 
-.card{
+.card{/* simple container with white bg for sections */
   background: rgba(255,255,255,0.70);
   border-radius: var(--radius);
   box-shadow: var(--shadow-soft);
   padding: 18px;
   margin: 14px auto;
 }
-.card div span{
+.card div span{/*for menu, affects titles of food */
   font-size: 20px;
   font-weight: 2000;
 }
@@ -225,7 +225,7 @@ button.btn{
   .btn, button.btn{ width: 50%; }
 }
 
-/* ---------- Hero (Home banner) ---------- */
+/* ---------- Hero (Text overlayed banner) ---------- */
 .hero{
   position: relative;
   border-radius: var(--radius);
@@ -286,7 +286,7 @@ button.btn{
 }
 
 
-/* ---------- Dress code image------  */
+/* ---------- Dress code image (based from hero)------  */
 .palette-container {
   position: relative;
   width: 100%;
@@ -372,13 +372,22 @@ button.btn{
   box-shadow: var(--shadow-soft);
 }
 
-.byeOR{
+/* responsive image columns */
+@media (max-width: 1980px){
+  .gallery{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 980px){
+  .gallery{ grid-template-columns: 1fr; }
+}
+
+.byeOR{ /*"OR" between mains*/
   text-decoration: underline;
 }
-@media (min-width: 1000px){
-
+@media (min-width: 1000px){/*hide or between mains for desktop view, mobiles view is stacked so formatting is fine */
   .byeOR{display:none;}
 }
+
+/* ---------- Menu photos ---------- */
 .menu-item{
   display: flex;
   flex-direction: column;
@@ -401,13 +410,7 @@ button.btn{
   font-size: 0.95rem;
   color: #444;
 }
-/* responsive columns */
-@media (max-width: 1980px){
-  .gallery{ grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 980px){
-  .gallery{ grid-template-columns: 1fr; }
-}
+
 
 /* ---------- Forms (RSVP) ---------- */
 form{
@@ -511,7 +514,7 @@ select:focus{
   font-weight: 800;
 }
 
-/* ---------- FAQ (nice spacing) ---------- */
+/* ---------- FAQ (better spacing) ---------- */
 .faq p{
   margin: 0 0 16px;
   line-height: 1.45;

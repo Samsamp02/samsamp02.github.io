@@ -23,7 +23,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // ===============================
-// DOM elements
+// DOM elements (table loader)
 // ===============================
 const rowsEl = document.getElementById("rows");
 const statusMsg = document.getElementById("statusMsg");
@@ -51,6 +51,7 @@ function toDateString(createdAt) {
   try { return new Date(createdAt).toLocaleString(); } catch { return ""; }
 }
 
+//displays the list of RSVPs in the table, and updates the count pill
 function render(list) {
   rowsEl.innerHTML = "";
   countPill.textContent = `${list.length}`;
@@ -73,9 +74,10 @@ function render(list) {
   }
 }
 
+//filters the list of RSVPs based on the search input
 function applySearch() {
   const s = searchEl.value.trim().toLowerCase();
-  if (!s) {
+  if (!s) {//no search case
     render(allDocs);
     return;
   }
@@ -88,41 +90,13 @@ function applySearch() {
     return hay.includes(s);
   });
 
-  render(filtered);
-}
-
-function downloadCSV(data) {
-  const headers = ["createdAt","firstName","lastName","email","phone","attendance","main","side","desert","comment"];
-  const lines = [headers.join(",")];
-
-  for (const d of data) {
-    const row = [
-      toDateString(d.createdAt),
-      d.firstName, d.lastName, d.email, d.phone,
-      d.attendance, d.main, d.side, d.desert, d.comment
-    ].map(v => `"${safe(v).replace(/"/g, '""')}"`);
-    lines.push(row.join(","));
-  }
-
-  const blob = new Blob([lines.join("\n")], { type: "text/csv;charset=utf-8;" });
-  const url = URL.createObjectURL(blob);
-
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "rsvp_responses.csv";
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-
-  URL.revokeObjectURL(url);
+  render(filtered);//rerender the filtered table
 }
 
 // ===============================
 // Firestore live query (newest first)
 // ===============================
 statusMsg.textContent = "Loading…";
-
-
 const q = query(collection(db, "rsvps"), orderBy("createdAt", "desc"));
 
 onSnapshot(
@@ -142,4 +116,3 @@ onSnapshot(
 // UI hooks
 // ===============================
 searchEl.addEventListener("input", applySearch);
-exportBtn.addEventListener("click", () => downloadCSV(allDocs));

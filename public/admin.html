@@ -15,7 +15,7 @@
     input { padding: 8px 10px; }
     button { padding: 8px 12px; cursor: pointer; }
     .pill { display:inline-block; padding: 3px 8px; border-radius: 999px; border: 1px solid #ccc; font-size: 0.9em; }
-  </style>
+  </style> <!--unique to admin page-->
 </head>
 
  <div class="header" id="site-header">
@@ -32,15 +32,7 @@
       </div>
     </div>
   </div>
-   <script>
-  const header = document.getElementById('site-header');
-  const btn = document.getElementById('menu-btn');
-
-  btn.addEventListener('click', () => {
-    const isOpen = header.classList.toggle('nav-open');
-    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  });
-</script>
+  <script type="module" src="./header-script.js"></script>
 <body>
   <div class="wrap">
     <h1 style="text-align:center;">Admin Dashboard</h1>
@@ -49,6 +41,7 @@
 
     <div class="controls">
       <input id="search" type="text" placeholder="Search name / email / phone..." />
+      <!--number of RSVPs pulled from firebase-->
       <span class="pill" id="countPill">0</span>
     </div>
 
