@@ -20,11 +20,11 @@ img { max-width: 100%; display: block; }
 
 @font-face {
   font-family: "Ovo";
-  src: url(Ovo/Ovo-Regular.ttf) format("truetype");
+  src: url(fonts/Ovo/Ovo-Regular.ttf) format("truetype");
 }
 @font-face {
   font-family: "Amoresa";
-  src: url(Amoresa/Amoresa\ Regular.woff2) format("woff2");
+  src: url(fonts/moresa/Amoresa\ Regular.woff2) format("woff2");
 }
 body {
   font-family: "Ovo", Arial, serif;
