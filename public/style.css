@@ -405,6 +405,10 @@ form{
   font-family: "Ovo", Arial, serif;
 }
 
+form .btn{
+  width: 100%;
+  font-size: 18px;
+}
 label{
   font-weight: 800;
   font-size: 16px;

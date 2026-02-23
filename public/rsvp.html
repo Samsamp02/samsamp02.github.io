@@ -33,15 +33,14 @@
   </script>
 
   <main class="container">
-    <section class="card">
+    <section class="card" style="font-size: 18px;">
       <h2 class="center">RSVP for Marissa & Joel</h2>
       <p class="center" style="margin-top:6px;">We’re excited to celebrate with you!</p>
-      <p class="center">Please provide your mobile phone number, which will serve as your RSVP code.<br>
-      It will be verified once submitted.</p>
+      <p class="center">Please provide your mobile phone number, which will serve as your RSVP code.</p>
       
       <form id="rsvpForm">
          <div>
-          <p id="statusMsg"></p>
+          <p id="statusMsg" class="center"></p>
           <label for="phone">Phone number</label>
           <input type="tel"
           id="phone"
@@ -109,7 +108,7 @@
         <div>
           <input type="checkbox" id="aussie" name="aussie" style="display:none;">
           <label for="aussie" id="aussie-label" style="display:none;">I am an Australian resident</label>
-          <p>Please review the menu before submitting your RSVP</p>
+          <p class="center">Please review the menu before submitting your RSVP</p>
 
           <button type="submit" class="btn" onclick="window.scrollTo(0, 0);">Submit RSVP</button>
           
@@ -119,10 +118,15 @@
     </section>
   </main>
 
-  <img class="large-img" src="img/IMG_8391.jpg">
+
+  <section class="hero">
+    <img src="img/IMG_8391.jpg" class="large-img" alt="Photo" style=" margin-bottom: -50px; width: 100%; max-width: 500px; object-fit: cover; border-radius: 14px;box-shadow: var(--shadow-soft);">
+      <div>
+      <h3 >Can’t wait to celebrate with you 💜</h3>  
+      </div>
+  </section>
 
   <footer>
-    <p>Thank you for letting us know 💜</p>
   </footer>
 
   <script type="module" src="./rsvp.js"></script>
