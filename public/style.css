@@ -24,7 +24,7 @@ img { max-width: 100%; display: block; }
 }
 @font-face {
   font-family: "Amoresa";
-  src: url(fonts/moresa/Amoresa\ Regular.woff2) format("woff2");
+  src: url(fonts/Amoresa/Amoresa\ Regular.woff2) format("woff2");
 }
 body {
   font-family: "Ovo", Arial, serif;
