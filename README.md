@@ -135,24 +135,25 @@ This project was built as a personalized wedding website to:
 
 # 🗂️ Project Structure
 ```
-/root
-├── index.html
-├── img/
-└── /public
-  ├── /Ovo (font)
-  ├── /Amoressa (font)
-  ├── header-script
-  ├── index.html
-  ├── rsvp.html
-  ├── rsvp.js
-  ├── schedule.html
-  ├── menu.html
-  ├── faq.html
-  ├── countdown.html
-  ├── countdown.js
-  ├── style.css
-  ├── script.js
-  ├── admin.html
-  ├── admin.js
-  └── invitedPhones.json
+root/
+├── img/                     
+├── index.html  #rerouting to subfolder
+└── public/
+    ├── fonts/
+    │   ├── Ovo/
+    │   └── Amoressa/
+    ├── JS/
+    │   ├── header-script.js
+    │   ├── rsvp.js
+    │   ├── countdown.js
+    │   └── admin.js
+    ├── index.html
+    ├── admin.html
+    ├── rsvp.html
+    ├── schedule.html
+    ├── menu.html
+    ├── faq.html
+    ├── countdown.html
+    ├── style.css
+    └── invitedPhones.json
 ``` 
